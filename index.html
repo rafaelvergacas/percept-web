@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Percep2 — Talk to people nearby. Without adding anyone.</title>
+<meta name="description" content="Percep2 opens a chat with everyone within about a kilometre of you. No match, no follow, no swapping numbers.">
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/space-grotesk-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/space-grotesk-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(fonts/inter-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(fonts/inter-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --void:#0B0D12; --ink:#12141A; --surface:#1A1D24; --line:#262A33;
+  --graphite:#363B45; --slate:#8A909C; --mist:#E4E6EB; --paper:#F7F8FA;
+  --blue:#5B6CFF; --blue-l:#7A8CFF; --blue-d:#3846C4;
+
+  /* escala do brandbook, pág. 05 */
+  --fs-display:clamp(2.35rem, 1.7rem + 2.6vw, 3.5rem);   /* 56 / 60 · -3%  */
+  --fs-h1:clamp(1.95rem, 1.6rem + 1.5vw, 2.5rem);        /* 40 / 46 · -2%  */
+  --fs-h2:clamp(1.5rem, 1.3rem + .9vw, 1.75rem);         /* 28 / 34 · -1.5%*/
+  --fs-h3:1.25rem;                                       /* 20 / 27        */
+  --fs-b:1rem;                                           /* 16 / 26        */
+  --fs-s:.875rem;                                        /* 14 / 22        */
+  --fs-xs:.75rem;                                        /* 12 / 16 · +12% */
+  --fs-lg:1.125rem;
+
+  --disp:'Space Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --text:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(1.25rem,5vw,5rem);
+  --sec:clamp(72px,9vw,120px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--mist);font-family:var(--text);
+  font-size:var(--fs-b);line-height:1.625;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--disp);line-height:1.06;letter-spacing:-.035em;
+  color:var(--paper);font-weight:700}
+h1{font-size:var(--fs-display);letter-spacing:-.03em}
+h2{font-size:var(--fs-h1);letter-spacing:-.02em;margin-bottom:1rem}
+h3{font-size:var(--fs-h3);letter-spacing:-.01em;line-height:1.35}
+p{max-width:68ch}
+a{color:inherit}
+.eyebrow{font-family:var(--disp);font-size:var(--fs-xs);font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--slate);
+  display:block;margin-bottom:1.4rem}
+.dim{color:var(--slate)}
+
+/* ---- buttons ---- */
+@media(max-width:640px){.btn{height:52px!important}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:var(--disp);font-weight:600;font-size:1rem;letter-spacing:-.01em;
+  height:48px;padding:0 20px;border-radius:8px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:background .12s var(--ease),border-color .12s var(--ease),color .12s var(--ease)}
+.btn-p{background:var(--blue);color:#fff}
+.btn-p:hover{background:var(--blue-d)}
+.btn-s{border-color:#3A4050;color:var(--mist);background:transparent}
+.btn-s:hover{border-color:var(--slate)}
+.btn:focus-visible{outline:2px solid var(--blue-l);outline-offset:3px}
+.link{color:var(--blue-l);font-weight:600;text-decoration:none}
+.link:hover{text-decoration:underline}
+
+/* ---- nav ---- */
+nav{position:sticky;top:0;z-index:50;background:rgba(11,13,18,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid transparent;
+  transition:border-color .2s var(--ease)}
+nav.stuck{border-bottom-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;
+  height:68px}
+.wrap{max-width:1200px}
+.lock{display:flex;align-items:center;gap:11px}
+.lock canvas{width:28px;height:28px;display:block}
+.lock span{font-family:var(--disp);font-weight:700;font-size:1.15rem;
+  letter-spacing:-.04em;color:var(--paper)}
+nav .btn{height:40px;font-size:.9rem;padding:0 1.1rem}
+
+/* ---- hero ---- */
+.hero{padding-block:clamp(3.5rem,8vw,6.5rem) var(--sec);position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);
+  align-items:center}
+.hero h1{margin-bottom:1.4rem}
+.hero .sub{font-size:var(--fs-lg);line-height:1.6;color:var(--mist);opacity:.86;margin-bottom:2.2rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.micro{font-size:var(--fs-s);color:var(--slate);margin-top:1.1rem}
+.trust{display:inline-flex;align-items:center;gap:.55rem;margin-top:.9rem;
+  font-size:var(--fs-s);color:var(--blue-l)}
+.trust svg{flex:none}
+
+/* mark stage */
+.stage{position:relative;display:grid;place-items:center;
+  min-height:clamp(320px,42vw,460px)}
+.stage canvas.mark{width:min(300px,60vw);height:min(300px,60vw);display:block;
+  position:relative;z-index:2}
+.rings{position:absolute;inset:0;display:grid;place-items:center;z-index:1}
+.rings i{position:absolute;border:1px solid var(--blue);border-radius:50%;
+  width:90px;height:90px;opacity:0;
+  animation:ping 6s cubic-bezier(.22,.61,.36,1) infinite}
+.rings i:nth-child(2){animation-delay:2s}
+.rings i:nth-child(3){animation-delay:4s}
+@keyframes ping{0%{width:90px;height:90px;opacity:0}
+  10%{opacity:.42}100%{width:min(520px,92vw);height:min(520px,92vw);opacity:0}}
+
+/* ---- proof ticker ---- */
+.proof{border-block:1px solid var(--line);background:var(--ink);
+  padding-block:1.05rem;overflow:hidden}
+.track{display:flex;gap:3.5rem;width:max-content;
+  animation:slide 46s linear infinite}
+.proof:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.msg{font-size:var(--fs-s);color:var(--slate);white-space:nowrap;
+  display:flex;align-items:center;gap:.6rem}
+.msg b{color:var(--blue-l);font-weight:600}
+.proof-note{font-size:var(--fs-xs);color:#4B5160;text-align:center;
+  margin-top:.7rem;letter-spacing:.04em}
+
+/* ---- sections ---- */
+section{padding-block:var(--sec)}
+.lede{font-size:var(--fs-lg);color:var(--mist);opacity:.9}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:24px;transition:border-color .16s var(--ease)}
+.step:hover{border-color:#2F3543}
+.step .n{font-family:var(--disp);font-size:var(--fs-s);font-weight:700;
+  color:var(--blue);letter-spacing:.1em;display:block;margin-bottom:.9rem}
+.step h3{font-size:1.15rem;margin-bottom:.55rem}
+.step p{font-size:var(--fs-s);color:var(--slate);line-height:1.6}
+
+.bens{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.ben{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:24px}
+.ben h3{font-size:1.1rem;margin-bottom:.6rem}
+.ben p{font-size:var(--fs-s);color:var(--slate);line-height:1.62}
+.ben:nth-child(4),.ben:nth-child(5){grid-column:span 1}
+
+/* light break */
+.break{background:var(--paper);color:var(--ink)}
+.break h2,.break h3{color:var(--ink)}
+.break p{color:#454B58}
+.break .eyebrow{color:#8A909C}
+.break .step,.break .ben{background:#fff;border-color:#E4E6EB}
+.break .step p,.break .ben p{color:#5F6675}
+
+/* ---- faq ---- */
+.faq{margin-top:2.6rem;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:1.25rem 2.5rem 1.25rem 0;
+  font-family:var(--disp);font-weight:600;font-size:1.05rem;color:var(--paper);
+  position:relative;transition:color .14s var(--ease)}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--blue-l)}
+summary:focus-visible{outline:2px solid var(--blue-l);outline-offset:4px}
+summary::after{content:"";position:absolute;right:.35rem;top:1.55rem;
+  width:11px;height:11px;border-right:1.5px solid var(--slate);
+  border-bottom:1.5px solid var(--slate);transform:rotate(45deg);
+  transition:transform .2s var(--ease)}
+details[open] summary::after{transform:rotate(-135deg)}
+details .a{padding:0 0 1.4rem;font-size:var(--fs-s);color:var(--slate);
+  line-height:1.7;max-width:66ch}
+details .a strong{color:var(--mist);font-weight:600}
+.faq-note{font-size:var(--fs-s);color:var(--slate);margin-top:1.6rem}
+
+/* ---- final ---- */
+.final{background:var(--blue);color:#fff;text-align:center}
+.final h2{color:#fff;font-size:var(--fs-display)}
+.final p{color:rgba(255,255,255,.86);margin:1rem auto 2.2rem}
+.final .btn{background:#fff;color:var(--blue-d)}
+.final .btn:hover{background:var(--paper)}
+.final .micro{color:rgba(255,255,255,.72)}
+
+footer{background:var(--ink);border-top:1px solid var(--line);
+  padding-block:2.6rem;font-size:var(--fs-s);color:var(--slate)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;
+  align-items:center;justify-content:space-between}
+footer a{text-decoration:none;color:var(--slate)}
+footer a:hover{color:var(--mist)}
+.flinks{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center}
+.flinks .soon{color:#4B5160}
+
+/* ---- scroll reveal ---- */
+.rv{opacity:0;transform:translateY(12px);
+  transition:opacity .24s ease-out,transform .24s ease-out}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .rings i,.track{animation:none}
+  html{scroll-behavior:auto}
+}
+
+@media(max-width:900px){
+  .hero-grid,.two{grid-template-columns:1fr}
+  .steps,.bens{grid-template-columns:1fr}
+  .stage{order:-1;min-height:300px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <div class="lock"><canvas id="navmark" width="56" height="56"></canvas><span>percep2</span></div>
+    <a class="btn btn-p" href="#get">Get Percep2</a>
+  </div>
+</nav>
+
+<!-- 1 · HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="rv">Talk to people nearby.<br>Without adding anyone.</h1>
+      <p class="sub rv">Percep2 opens a chat with everyone within about a kilometre of you.
+        No match. No follow. No swapping numbers. You show up and you're already in
+        the conversation.</p>
+      <div class="cta-row rv">
+        <a class="btn btn-p" href="#get">Get Percep2</a>
+        <a class="btn btn-s" href="#how">See how it works</a>
+      </div>
+      <p class="micro rv">Free. Actually free. You're in your area's chat the moment it opens.</p>
+      <p class="trust rv">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Nobody sees where you are. Only that you're nearby.
+      </p>
+    </div>
+    <div class="stage rv">
+      <div class="rings"><i></i><i></i><i></i></div>
+      <canvas class="mark" id="heromark" width="640" height="640"></canvas>
+    </div>
+  </div>
+</header>
+
+<!-- 2 · PROOF -->
+<div class="proof">
+  <div class="track" id="track"></div>
+</div>
+<p class="proof-note">EXAMPLE MESSAGES — REPLACE WITH REAL ONES ONCE YOUR TERMS ALLOW IT</p>
+
+<!-- 3 · CONFLICT -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">The problem</span>
+    <h2 class="rv">Before you can talk to someone,<br>you have to become someone.</h2>
+    <div class="two" style="margin-top:2rem">
+      <div>
+        <p class="lede rv">A friend. A follower. A match. A saved contact.</p>
+        <p class="rv dim" style="margin-top:1.1rem">The apps you already use were built to
+          assemble a list of connections — and then, maybe, let you talk. Conversation
+          became the reward at the end of a process.</p>
+      </div>
+      <div>
+        <p class="rv dim">So here's what happens. You're standing in a place full of people
+          you'd have something to say to, and there's no way to say it. The restaurant that
+          just opened. The show going on right now. The crash one street up. Everyone
+          knowing the same thing, nobody saying a word to each other.</p>
+        <p class="rv" style="margin-top:1.1rem;color:var(--mist)">There's no shortage of
+          people nearby. It just got harder to talk to them than to someone on the other
+          side of the planet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · HOW IT WORKS (light break) -->
+<section class="break" id="how">
+  <div class="wrap">
+    <span class="eyebrow rv">How it works</span>
+    <h2 class="rv">Open it. The conversation's already there.</h2>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span>
+        <h3>You land in your area's chat</h3>
+        <p>General Chat holds everyone within about a kilometre. No friend list, no request
+          to join. You open it and you're in.</p></div>
+      <div class="step rv"><span class="n">02</span>
+        <h3>Or start one about something specific</h3>
+        <p>Football. Music. Whatever's going on. Still local, still open to whoever's around.
+          It disappears on its own after two hours — built for right now, not to become
+          another dead group on your phone.</p></div>
+      <div class="step rv"><span class="n">03</span>
+        <h3>If it was worth it, it keeps going</h3>
+        <p>Whoever started the chat can turn it into a Closed Chat, and everyone already
+          talking comes along. After that, people join by invite link.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · BENEFITS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">What changes</span>
+    <h2 class="rv">Five things that work differently here.</h2>
+    <div class="bens">
+      <div class="ben rv"><h3>Talk first, connect later</h3>
+        <p>You shouldn't have to decide someone's interesting from a photo before finding
+          out whether they are. Here the conversation comes first — which is the order
+          people met in before the internet flipped it around.</p></div>
+      <div class="ben rv"><h3>Everyone gets a turn</h3>
+        <p>No algorithm picking who shows up. If you're nearby, you're in the chat. Say
+          something and it lands — it doesn't depend on having the most appealing profile,
+          to other people or to a feed.</p></div>
+      <div class="ben rv"><h3>What's happening, while it happens</h3>
+        <p>New restaurant. Show. Party. Crash on the main road. Beach closed for weather.
+          "Anyone know where the bookshop is?" Neighbourhood information in real time,
+          from people who are actually there.</p></div>
+      <div class="ben rv"><h3>You decide how much contact you want</h3>
+        <p>Turn private messages off and keep using the chats normally. Block anyone.
+          Direct contact is a setting, not a condition of using the app.</p></div>
+      <div class="ben rv"><h3>Your building, your office, your group</h3>
+        <p>Message your whole building without anyone's number. Message everyone who works
+          where you work. The group already exists — it's geographic.</p></div>
+      <div class="ben rv" style="background:transparent;border-style:dashed;
+           display:grid;place-items:center;text-align:center">
+        <p style="color:#5F6675">[TESTIMONIALS GO HERE ONCE YOU HAVE THEM —<br>
+          vertical video, 15–30s, shot on a phone]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · OBJECTIONS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">Before you install</span>
+    <h2 class="rv">What you're probably wondering.</h2>
+    <div class="faq">
+      <details open class="rv"><summary>Can anyone tell where I am?</summary>
+        <div class="a"><strong>No.</strong> Nobody sees your exact location — not other
+          users, not the people in your chats. Percep2 only needs to know that you're inside
+          the same one-kilometre area as the conversation. That's the whole of it. There's
+          no pin on a map, no address, no "300 metres away". You're in the area or you're
+          not.</div></details>
+      <details class="rv"><summary>Do I have to take private messages from strangers?</summary>
+        <div class="a">No. You can switch private messages off and still use every chat
+          normally. And you can block anyone.</div></details>
+      <details class="rv"><summary>What if someone's a creep?</summary>
+        <div class="a">You block them on the spot. [DESCRIBE WHAT ELSE EXISTS TODAY —
+          reporting, moderation, message removal. Only write what already works.]</div></details>
+      <details class="rv"><summary>Do I have to show my face or use my real name?</summary>
+        <div class="a">[CONFIRM: photo, bio and display name are all editable. Say whether
+          any of them is required, and whether the display name has to be a real name.]</div></details>
+      <details class="rv"><summary>What does it cost?</summary>
+        <div class="a">Nothing. The app is completely free — including the Professional
+          account, which also costs nothing right now.</div></details>
+      <details class="rv"><summary>So what's a Professional account?</summary>
+        <div class="a">An account type with two extra things: your Open Chats don't expire
+          after two hours, and you can turn them into Closed Chats. Switching is free.</div></details>
+      <details class="rv"><summary>Why do chats disappear after two hours?</summary>
+        <div class="a">Because they're for what's happening now. A chat about the show ends
+          when the show ends. Anything worth keeping becomes a Closed Chat; the rest gets
+          out of the way.</div></details>
+      <details class="rv"><summary>Is this a dating app?</summary>
+        <div class="a">Not only. Some people are looking for a relationship, some want
+          friends or someone to do something with, and some just want to know what's going
+          on nearby. All three fit in the same chat, and that's the part that makes it
+          work.</div></details>
+      <details class="rv"><summary>Does it work where I live?</summary>
+        <div class="a">[DESCRIBE REAL COVERAGE AND THE DENSITY PROBLEM: the app needs other
+          people within a kilometre. Say what happens when the area is empty.]</div></details>
+    </div>
+    <p class="faq-note rv">Something the page didn't answer? There are people reading.
+      Write to <a class="link" href="mailto:[EMAIL]">[EMAIL]</a> — we answer within
+      [TIMEFRAME]. Inside the app, Help &amp; Support in the menu goes straight to whoever
+      builds Percep2.</p>
+  </div>
+</section>
+
+<!-- 9 · FINAL CTA -->
+<section class="final" id="get">
+  <div class="wrap">
+    <h2 class="rv">Look around you.</h2>
+    <p class="rv">There's a conversation happening less than a kilometre away.
+      You just have to open it.</p>
+    <a class="btn rv" href="#">Get Percep2</a>
+    <p class="micro rv" style="margin-top:1.2rem">Free. No match, no followers,
+      no swapping numbers.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="lock"><canvas id="footmark" width="48" height="48"></canvas>
+      <span style="font-size:1rem">percep2 — look around you</span></div>
+    <div class="flinks">
+      <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+      <a href="delete-account.html">Delete account</a>
+      <a href="mailto:support@percep2.com">Contact</a>
+      <span class="soon">App Store &amp; Google Play — coming soon</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   1 · Símbolo em 3D — bipirâmide hexagonal.
+   Em rotação 0 a vista frontal é EXATAMENTE o logo do brandbook
+   (hexágono, 6 facetas do centro, mesmas cores da pág. 02).
+   Girar revela o volume que o símbolo já sugeria — não inventa
+   outra forma. Oscila devagar em vez de dar voltas completas,
+   para o mark nunca ficar de costas.
+   ============================================================ */
+(function(){
+  const HEX=[], N=6;
+  for(let i=0;i<N;i++){                       // hexágono no plano XY
+    const a=Math.PI/2 - i*Math.PI/3;          // topo primeiro, sentido horário
+    HEX.push([Math.cos(a),Math.sin(a),0]);
+  }
+  const D=0.52;                               // profundidade dos ápices
+  const FRONT=[0,0,D], BACK=[0,0,-D];
+  const FILL=[[0x7A,0x8C,0xFF],[0x5B,0x6C,0xFF],[0x38,0x46,0xC4],
+              [0x20,0x23,0x28],[0x2B,0x2F,0x39],[0x36,0x3B,0x45]];
+  const faces=[];
+  for(let i=0;i<N;i++){
+    faces.push({v:[FRONT,HEX[i],HEX[(i+1)%N]], c:FILL[i]});          // frente
+    faces.push({v:[BACK,HEX[(i+1)%N],HEX[i]], c:FILL[i].map(x=>Math.round(x*0.62))}); // verso
+  }
+  const L=(()=>{const v=[-.5,.72,.85],l=Math.hypot(...v);return v.map(c=>c/l)})();
+
+  function make(cv){
+    const ctx=cv.getContext('2d'), S=cv.width, R=S*0.40;
+    return function(ry,rx){
+      ctx.clearRect(0,0,S,S);
+      const rot=p=>{
+        let [x,y,z]=p;
+        let y2=y*Math.cos(rx)-z*Math.sin(rx), z2=y*Math.sin(rx)+z*Math.cos(rx);
+        return [x*Math.cos(ry)+z2*Math.sin(ry), y2, -x*Math.sin(ry)+z2*Math.cos(ry)];
+      };
+      faces.map(f=>{
+        const v=f.v.map(rot);
+        return {v,c:f.c,z:(v[0][2]+v[1][2]+v[2][2])/3};
+      }).sort((p,q)=>p.z-q.z).forEach(({v,c})=>{
+        const u=[v[1][0]-v[0][0],v[1][1]-v[0][1],v[1][2]-v[0][2]];
+        const w=[v[2][0]-v[0][0],v[2][1]-v[0][1],v[2][2]-v[0][2]];
+        let n=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]];
+        const nl=Math.hypot(...n); n=n.map(t=>t/nl);
+        if(n[2]<=0.015) return;                          // back-face culling
+        const lam=Math.max(0,n[0]*L[0]+n[1]*L[1]+n[2]*L[2]);
+        const k=0.62+lam*0.62;
+        const col=c.map(t=>Math.min(255,Math.round(t*k)));
+        ctx.fillStyle='rgb('+col[0]+','+col[1]+','+col[2]+')';
+        ctx.beginPath();
+        v.forEach((p,j)=>{const X=S/2+p[0]*R, Y=S/2-p[1]*R;
+          j?ctx.lineTo(X,Y):ctx.moveTo(X,Y)});
+        ctx.closePath(); ctx.fill();
+      });
+    };
+  }
+
+  const draws=['heromark','navmark','footmark']
+    .map(id=>document.getElementById(id)).filter(Boolean).map(make);
+  if(!draws.length) return;
+
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){
+    draws.forEach(d=>d(0,0)); return;                    // parado = logo exato
+  }
+  let live=true;
+  const hero=document.querySelector('.hero');
+  if(hero) new IntersectionObserver(e=>{live=e[0].isIntersecting;},{threshold:0}).observe(hero);
+  (function loop(ms){
+    if(live){
+      const t=ms/1000;
+      const ry=Math.sin(t*0.16)*0.62;      // oscila ±36°, ~39s por ciclo
+      const rx=Math.sin(t*0.11)*0.16;
+      draws.forEach(d=>d(ry,rx));
+    }
+    requestAnimationFrame(loop);
+  })(0);
+})();
+
+/* ============================================================
+   2 · Scroll reveal — IntersectionObserver, stagger por bloco.
+   Sem GSAP de propósito: 70 KB para um fade é custo sem retorno,
+   e o brandbook proíbe parallax. Se quiser trocar por GSAP,
+   substitua este bloco por ScrollTrigger.batch(".rv", {...}).
+   ============================================================ */
+(function(){
+  const els=[...document.querySelectorAll('.rv')];
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){
+    els.forEach(e=>e.classList.add('in')); return;
+  }
+  const io=new IntersectionObserver((entries)=>{
+    entries.filter(e=>e.isIntersecting).forEach((e,i)=>{
+      setTimeout(()=>e.target.classList.add('in'), i*60);   // stagger
+      io.unobserve(e.target);
+    });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(e=>io.observe(e));
+})();
+
+/* ============================================================
+   3 · Proof ticker — duplicado para loop contínuo
+   ============================================================ */
+(function(){
+  const msgs=[
+    ['Vila Madalena','anyone know if the bakery on the corner is open?'],
+    ['Centro','crash on the main road, avoid it for the next hour'],
+    ['Praia Grande','beach closed today, too much wind'],
+    ['Pinheiros','new ramen place just opened, queue is short right now'],
+    ['Bloco B','whose car is blocking the garage'],
+    ['Ibirapuera','someone playing live music near the gate, worth the walk'],
+    ['Centro','looking for a bookshop around here, any tips?'],
+    ['Barra','who else is at the show? this crowd is huge']
+  ];
+  const t=document.getElementById('track');
+  if(!t) return;
+  const html=msgs.map(([p,m])=>`<span class="msg"><b>${p}</b> ${m}</span>`).join('');
+  t.innerHTML=html+html;                       // duas voltas = loop sem corte
+})();
+
+/* ============================================================
+   4 · Nav border on scroll
+   ============================================================ */
+(function(){
+  const nav=document.getElementById('nav');
+  const io=new IntersectionObserver(([e])=>nav.classList.toggle('stuck',!e.isIntersecting),
+    {rootMargin:'-69px 0px 0px 0px'});
+  io.observe(document.querySelector('.hero'));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — Percep2</title>
+<meta name="description" content="What Percep2 collects, why, how long we keep it, and how to get it deleted.">
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/space-grotesk-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/space-grotesk-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(fonts/inter-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(fonts/inter-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --void:#0B0D12; --ink:#12141A; --surface:#1A1D24; --line:#262A33;
+  --graphite:#363B45; --slate:#8A909C; --mist:#E4E6EB; --paper:#F7F8FA;
+  --blue:#5B6CFF; --blue-l:#7A8CFF; --blue-d:#3846C4;
+
+  --fs-display:clamp(2.35rem, 1.7rem + 2.6vw, 3.5rem);
+  --fs-h1:clamp(1.95rem, 1.6rem + 1.5vw, 2.5rem);
+  --fs-h2:clamp(1.5rem, 1.3rem + .9vw, 1.75rem);
+  --fs-h3:1.25rem;
+  --fs-b:1rem;
+  --fs-s:.875rem;
+  --fs-xs:.75rem;
+  --fs-lg:1.125rem;
+
+  --disp:'Space Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --text:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(1.25rem,5vw,5rem);
+  --sec:clamp(72px,9vw,120px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--mist);font-family:var(--text);
+  font-size:var(--fs-b);line-height:1.625;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--disp);line-height:1.06;letter-spacing:-.035em;
+  color:var(--paper);font-weight:700}
+h1{font-size:var(--fs-h1);letter-spacing:-.03em}
+h3{font-size:var(--fs-h3);letter-spacing:-.01em;line-height:1.35}
+p{max-width:68ch}
+a{color:inherit}
+.eyebrow{font-family:var(--disp);font-size:var(--fs-xs);font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--slate);
+  display:block;margin-bottom:1.4rem}
+.dim{color:var(--slate)}
+
+/* ---- buttons ---- */
+@media(max-width:640px){.btn{height:52px!important}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:var(--disp);font-weight:600;font-size:1rem;letter-spacing:-.01em;
+  height:48px;padding:0 20px;border-radius:8px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:background .12s var(--ease),border-color .12s var(--ease),color .12s var(--ease)}
+.btn-p{background:var(--blue);color:#fff}
+.btn-p:hover{background:var(--blue-d)}
+.btn-s{border-color:#3A4050;color:var(--mist);background:transparent}
+.btn-s:hover{border-color:var(--slate)}
+.btn:focus-visible{outline:2px solid var(--blue-l);outline-offset:3px}
+.link{color:var(--blue-l);font-weight:600;text-decoration:none}
+.link:hover{text-decoration:underline}
+
+/* ---- nav ---- */
+nav{position:sticky;top:0;z-index:50;background:rgba(11,13,18,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid transparent;
+  transition:border-color .2s var(--ease)}
+nav.stuck{border-bottom-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;
+  height:68px}
+.lock{display:flex;align-items:center;gap:11px;text-decoration:none}
+.lock canvas{width:28px;height:28px;display:block}
+.lock span{font-family:var(--disp);font-weight:700;font-size:1.15rem;
+  letter-spacing:-.04em;color:var(--paper)}
+nav .btn{height:40px;font-size:.9rem;padding:0 1.1rem}
+
+/* ---- document ---- */
+.doc{padding-block:clamp(3rem,6vw,4.5rem) var(--sec)}
+.doc-head{border-bottom:1px solid var(--line);padding-bottom:2.4rem;margin-bottom:2.8rem}
+.doc-head h1{margin-bottom:1.1rem}
+.doc-head .lede{font-size:var(--fs-lg);color:var(--mist);opacity:.86;margin-bottom:1.4rem}
+.updated{font-size:var(--fs-s);color:var(--slate)}
+.doc-body{max-width:760px}
+.doc-body h2{font-family:var(--disp);font-size:var(--fs-h2);letter-spacing:-.02em;
+  color:var(--paper);margin-top:3.4rem;margin-bottom:1rem;scroll-margin-top:92px}
+.doc-body h3{margin-top:2.1rem;margin-bottom:.6rem}
+.doc-body p{margin-bottom:1.05rem;color:var(--mist);opacity:.9}
+.doc-body ul,.doc-body ol{margin:0 0 1.2rem;padding-left:1.3rem;max-width:68ch}
+.doc-body li{margin-bottom:.55rem;color:var(--mist);opacity:.9}
+.doc-body li::marker{color:var(--blue)}
+.doc-body strong{color:var(--paper);font-weight:600}
+
+/* ---- contents ---- */
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:24px;margin-bottom:1rem}
+.toc .eyebrow{margin-bottom:1rem}
+.toc ol{list-style:none;padding:0;margin:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2rem}
+.toc li{margin:0}
+.toc a{font-size:var(--fs-s);color:var(--slate);text-decoration:none;
+  transition:color .14s var(--ease)}
+.toc a:hover{color:var(--blue-l)}
+
+/* ---- table ---- */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;
+  margin:0 0 1.6rem;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:580px;font-size:var(--fs-s)}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);
+  vertical-align:top;line-height:1.6}
+thead th{font-family:var(--disp);font-weight:600;font-size:var(--fs-xs);
+  letter-spacing:.08em;text-transform:uppercase;color:var(--paper);
+  background:var(--ink)}
+tbody td{color:var(--slate)}
+tbody td:first-child{color:var(--mist)}
+tbody tr:last-child td{border-bottom:none}
+
+/* ---- callout ---- */
+.note{background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--blue);border-radius:10px;
+  padding:18px 20px;margin:0 0 1.6rem}
+.note p{margin:0;font-size:var(--fs-s);color:var(--slate);opacity:1}
+.note p+p{margin-top:.7rem}
+.note strong{color:var(--mist)}
+
+footer{background:var(--ink);border-top:1px solid var(--line);
+  padding-block:2.6rem;font-size:var(--fs-s);color:var(--slate)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;
+  align-items:center;justify-content:space-between}
+footer a{text-decoration:none;color:var(--slate)}
+footer a:hover{color:var(--mist)}
+.flinks{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center}
+.flinks .soon{color:#4B5160}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:640px){.toc ol{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="lock" href="index.html"><canvas id="navmark" width="56" height="56"></canvas><span>percep2</span></a>
+    <a class="btn btn-s" href="index.html">Back to site</a>
+  </div>
+</nav>
+
+<main class="doc">
+  <div class="wrap">
+
+    <div class="doc-head">
+      <span class="eyebrow">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="lede">Percep2 puts you in a chat with people around you. To do that it has to
+        know roughly where you are — and nothing more than that. This page says exactly what
+        we collect, why, how long we hold it, and how to make it go away.</p>
+      <p class="updated">Last updated 16 August 2026 · Applies to the Percep2 mobile app and percep2.com</p>
+    </div>
+
+    <div class="toc">
+      <span class="eyebrow">Contents</span>
+      <ol>
+        <li><a href="#controller">1 · Who is responsible</a></li>
+        <li><a href="#collect">2 · What we collect</a></li>
+        <li><a href="#location">3 · How location is used</a></li>
+        <li><a href="#why">4 · Why we are allowed to</a></li>
+        <li><a href="#retention">5 · How long we keep it</a></li>
+        <li><a href="#sharing">6 · Who else touches it</a></li>
+        <li><a href="#transfers">7 · Where it is stored</a></li>
+        <li><a href="#rights">8 · Your rights</a></li>
+        <li><a href="#deletion">9 · Deleting your account</a></li>
+        <li><a href="#security">10 · Security</a></li>
+        <li><a href="#children">11 · Age</a></li>
+        <li><a href="#cookies">12 · This website</a></li>
+        <li><a href="#changes">13 · Changes</a></li>
+        <li><a href="#contact">14 · Contact</a></li>
+      </ol>
+    </div>
+
+    <div class="doc-body">
+
+      <h2 id="controller">1 · Who is responsible</h2>
+      <p>The data controller for Percep2 is <strong>Rafael da Silva Vergaças</strong>, an individual
+        developer established in Malta. Under the EU General Data Protection Regulation (GDPR),
+        that means the buck stops here: decisions about what gets collected and why are made by
+        one person, and you can reach that person directly at
+        <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a>.</p>
+      <p>There is no data protection officer, because the scale of processing does not require one.</p>
+
+      <h2 id="collect">2 · What we collect</h2>
+      <p>Everything below is collected because a specific feature needs it. Nothing is collected
+        to profile you, to sell, or to feed an advertising network.</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>What</th><th>Where it comes from</th><th>What it is for</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Email address</td>
+              <td>You, at sign-up</td>
+              <td>Logging in, the verification code, password resets. It is not shown to other users.</td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td>You, at sign-up</td>
+              <td>Stored only as a salted hash. We cannot read it and cannot recover it for you.</td>
+            </tr>
+            <tr>
+              <td>Display name</td>
+              <td>You</td>
+              <td>What other people in a chat see. It does not have to be your real name.</td>
+            </tr>
+            <tr>
+              <td>Date of birth</td>
+              <td>You, at sign-up</td>
+              <td>Confirming you are old enough to use the app.</td>
+            </tr>
+            <tr>
+              <td>Gender, country of origin, bio, profile picture</td>
+              <td>You, optionally</td>
+              <td>Your public profile inside the app. All optional, all editable, all removable.</td>
+            </tr>
+            <tr>
+              <td>Approximate location</td>
+              <td>Your device, with your permission</td>
+              <td>Working out which area chat you belong to. See section 3 — this is the part that matters.</td>
+            </tr>
+            <tr>
+              <td>Messages you send</td>
+              <td>You</td>
+              <td>Delivering them to the chat, and showing sent / delivered / read state.</td>
+            </tr>
+            <tr>
+              <td>Chats you create</td>
+              <td>You</td>
+              <td>The chat name, its centre point and its radius, so people nearby can find it.</td>
+            </tr>
+            <tr>
+              <td>Push notification token</td>
+              <td>Your device, with your permission</td>
+              <td>Sending you a notification when someone messages you. Revocable in your phone's settings.</td>
+            </tr>
+            <tr>
+              <td>Blocks, hidden chats, account type</td>
+              <td>You, as you use the app</td>
+              <td>Remembering your choices so the app behaves the way you set it up.</td>
+            </tr>
+            <tr>
+              <td>Messages to Help &amp; Support</td>
+              <td>You, when you write in</td>
+              <td>Answering you.</td>
+            </tr>
+            <tr>
+              <td>Server logs</td>
+              <td>Automatic</td>
+              <td>Keeping the service running and diagnosing failures. Short-lived and not used to build a profile of you.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>We do <strong>not</strong> use advertising SDKs, third-party analytics, or tracking
+        pixels, and we do not sell or rent personal data to anyone, for any price.</p>
+
+      <h2 id="location">3 · How location is used</h2>
+      <p>This is the one people ask about, so it gets its own section.</p>
+      <p>Your device gives the app GPS coordinates when you grant location permission. The server
+        uses them for exactly one thing: deciding which area you are in. Coordinates are turned
+        into a <strong>geohash</strong> — a coarse grid cell covering the area around you — and it
+        is the cell, not the coordinate, that decides which General Chat you land in and which
+        nearby chats you can see.</p>
+      <p>Your most recent coordinates are stored on your account so the app knows where to place
+        you when you reopen it. They are <strong>never shown to other users</strong>. Nobody in a
+        chat can see your position, your address, your distance from them, or a pin on a map. The
+        only thing anyone can infer is that you are somewhere inside the same area as the
+        conversation.</p>
+      <p>Location is only read while you are using the app. Percep2 does not track you in the
+        background, and it does not keep a history of everywhere you have been — only the last
+        known position, which is overwritten each time.</p>
+      <div class="note">
+        <p><strong>You can switch it off at any time</strong> in your phone's settings. The app
+          cannot place you in an area chat without it, so that part of Percep2 stops working —
+          but revoking the permission is always yours to do, and we delete the stored coordinates
+          when you delete your account.</p>
+      </div>
+
+      <h2 id="why">4 · Why we are allowed to</h2>
+      <p>GDPR requires a lawful basis for every piece of processing. Ours:</p>
+      <ul>
+        <li><strong>Performance of a contract</strong> — your account, your messages, and the
+          location matching that puts you in the right chat. Without these there is no app to
+          provide, and providing it is what you signed up for.</li>
+        <li><strong>Consent</strong> — device location access and push notifications. Both are
+          granted through your operating system's permission prompt and can be withdrawn there at
+          any time, without losing your account.</li>
+        <li><strong>Legitimate interests</strong> — blocking, moderation, abuse prevention,
+          security logging, and keeping the service up. The interest is a usable and safe app for
+          everyone in it; we have weighed that against your privacy and kept the data involved to
+          a minimum.</li>
+        <li><strong>Legal obligation</strong> — where we are required to keep or disclose
+          something by law.</li>
+      </ul>
+
+      <h2 id="retention">5 · How long we keep it</h2>
+      <p>Percep2 is built around conversations that expire. That is a product decision first, but
+        it is also a privacy one: the less that is stored, the less there is to lose.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Data</th><th>Kept for</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Messages in Open Chats</td><td>7 days, then deleted automatically</td></tr>
+            <tr><td>Messages in Closed Chats</td><td>30 days, then deleted automatically</td></tr>
+            <tr><td>Private messages</td><td>30 days, then deleted automatically</td></tr>
+            <tr><td>Open Chats themselves</td><td>They expire two hours after creation unless converted to a Closed Chat</td></tr>
+            <tr><td>Account data and profile</td><td>Until you delete your account</td></tr>
+            <tr><td>Last known coordinates</td><td>Overwritten on each use; deleted with your account</td></tr>
+            <tr><td>Push notification token</td><td>Until you sign out, revoke the permission, or delete your account</td></tr>
+            <tr><td>Support messages</td><td>Until your account is deleted</td></tr>
+            <tr><td>Server logs</td><td>A short operational window, then rotated out</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Deletion of expired messages is automatic and runs on a schedule — it is not something
+        anyone has to remember to do.</p>
+
+      <h2 id="sharing">6 · Who else touches it</h2>
+      <p>A small number of service providers process data on our behalf, under contract, and only
+        to do the job they are there for:</p>
+      <ul>
+        <li><strong>Amazon Web Services</strong> — hosting, database, file storage, and outbound
+          email (verification codes and password resets).</li>
+        <li><strong>Google (Firebase Cloud Messaging)</strong> — delivering push notifications to
+          Android devices.</li>
+        <li><strong>Apple (APNs)</strong> — delivering push notifications to iPhones.</li>
+        <li><strong>Expo</strong> — the push notification service that routes a notification to
+          the right device token.</li>
+      </ul>
+      <p>Other people using Percep2 see what you choose to show them: your display name, your
+        profile picture and bio if you set them, and the messages you send in a chat. Anything you
+        write in a General or Open Chat is visible to everyone in that area.</p>
+      <p>We will disclose data to authorities only where we are legally required to, and only to
+        the extent required.</p>
+
+      <h2 id="transfers">7 · Where it is stored</h2>
+      <p>Your account, messages and files are stored in the European Union, in AWS's Frankfurt
+        region (eu-central-1).</p>
+      <p>Push notification delivery necessarily involves Google and Apple infrastructure, which may
+        process the device token and the notification text outside the EU. Those transfers rely on
+        the European Commission's Standard Contractual Clauses. A push notification contains the
+        sender's display name and the message preview, which is why turning notifications off is a
+        meaningful privacy choice and not just a cosmetic one.</p>
+
+      <h2 id="rights">8 · Your rights</h2>
+      <p>If you are in the EU or the UK, you have the right to:</p>
+      <ul>
+        <li>ask what we hold about you, and get a copy of it;</li>
+        <li>have inaccurate data corrected — most of it you can edit yourself in Account Settings;</li>
+        <li>have your data erased (see section 9 — you can do this yourself, immediately);</li>
+        <li>restrict or object to processing based on legitimate interests;</li>
+        <li>receive your data in a portable, machine-readable format;</li>
+        <li>withdraw consent for location or notifications at any time, without affecting anything
+          done before you withdrew it.</li>
+      </ul>
+      <p>Write to <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a> and we
+        will respond within 30 days. There is no charge.</p>
+      <p>If you think we have handled your data badly, you can complain to your national data
+        protection authority. In Malta that is the
+        <a class="link" href="https://idpc.org.mt" target="_blank" rel="noopener">Information and
+        Data Protection Commissioner</a>. We would rather you told us first, but it is your right
+        either way.</p>
+
+      <h2 id="deletion">9 · Deleting your account</h2>
+      <p>You can delete your account yourself, from inside the app, without asking anyone's
+        permission and without waiting. It is immediate and it cannot be undone.</p>
+      <p><a class="link" href="delete-account.html">Full instructions, and exactly what gets
+        erased →</a></p>
+
+      <h2 id="security">10 · Security</h2>
+      <p>Traffic between the app and the server is encrypted in transit with TLS. Passwords are
+        stored as salted hashes and are never readable, by us or by anyone who obtained the
+        database. Access to production systems is restricted and protected by multi-factor
+        authentication.</p>
+      <p>No system is perfectly secure, and we will not pretend otherwise. If a breach occurs that
+        is likely to put your rights at risk, we will notify the supervisory authority within 72
+        hours and tell affected users directly.</p>
+
+      <h2 id="children">11 · Age</h2>
+      <p>Percep2 is not intended for children. You must be at least 16 years old to create an
+        account. If we learn that an account belongs to someone younger, we will delete it.</p>
+      <p>If you are a parent or guardian and believe your child has signed up, write to
+        <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a> and we will
+        remove the account.</p>
+
+      <h2 id="cookies">12 · This website</h2>
+      <p>percep2.com sets no cookies, runs no analytics, and does not track visitors. There is
+        nothing here to consent to, which is why you were not asked. The page makes no requests to
+        any third party at all — the typefaces are served from this domain, not from a font
+        network, so no other company learns that you visited.</p>
+
+      <h2 id="changes">13 · Changes</h2>
+      <p>If this policy changes in a way that matters, the date at the top changes with it, and
+        material changes will be announced by email and on percep2.com before they take effect. Continuing to use
+        Percep2 after that means you accept the updated policy.</p>
+
+      <h2 id="contact">14 · Contact</h2>
+      <p>Privacy questions, rights requests, or anything on this page that reads as vague:
+        <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a>.</p>
+      <p>General support: <a class="link" href="mailto:support@percep2.com">support@percep2.com</a>,
+        or Help &amp; Support in the app menu, which goes to the same place.</p>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="lock" href="index.html"><canvas id="footmark" width="48" height="48"></canvas>
+      <span style="font-size:1rem">percep2 — look around you</span></a>
+    <div class="flinks">
+      <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+      <a href="delete-account.html">Delete account</a>
+      <a href="mailto:support@percep2.com">Contact</a>
+      <span class="soon">App Store &amp; Google Play — coming soon</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const HEX=[], N=6;
+  for(let i=0;i<N;i++){
+    const a=Math.PI/2 - i*Math.PI/3;
+    HEX.push([Math.cos(a),Math.sin(a),0]);
+  }
+  const D=0.52;
+  const FRONT=[0,0,D], BACK=[0,0,-D];
+  const FILL=[[0x7A,0x8C,0xFF],[0x5B,0x6C,0xFF],[0x38,0x46,0xC4],
+              [0x20,0x23,0x28],[0x2B,0x2F,0x39],[0x36,0x3B,0x45]];
+  const faces=[];
+  for(let i=0;i<N;i++){
+    faces.push({v:[FRONT,HEX[i],HEX[(i+1)%N]], c:FILL[i]});
+    faces.push({v:[BACK,HEX[(i+1)%N],HEX[i]], c:FILL[i].map(x=>Math.round(x*0.62))});
+  }
+  const L=(()=>{const v=[-.5,.72,.85],l=Math.hypot(...v);return v.map(c=>c/l)})();
+
+  function make(cv){
+    const ctx=cv.getContext('2d'), S=cv.width, R=S*0.40;
+    return function(ry,rx){
+      ctx.clearRect(0,0,S,S);
+      const rot=p=>{
+        let [x,y,z]=p;
+        let y2=y*Math.cos(rx)-z*Math.sin(rx), z2=y*Math.sin(rx)+z*Math.cos(rx);
+        return [x*Math.cos(ry)+z2*Math.sin(ry), y2, -x*Math.sin(ry)+z2*Math.cos(ry)];
+      };
+      faces.map(f=>{
+        const v=f.v.map(rot);
+        return {v,c:f.c,z:(v[0][2]+v[1][2]+v[2][2])/3};
+      }).sort((p,q)=>p.z-q.z).forEach(({v,c})=>{
+        const u=[v[1][0]-v[0][0],v[1][1]-v[0][1],v[1][2]-v[0][2]];
+        const w=[v[2][0]-v[0][0],v[2][1]-v[0][1],v[2][2]-v[0][2]];
+        let n=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]];
+        const nl=Math.hypot(...n); n=n.map(t=>t/nl);
+        if(n[2]<=0.015) return;
+        const lam=Math.max(0,n[0]*L[0]+n[1]*L[1]+n[2]*L[2]);
+        const k=0.62+lam*0.62;
+        const col=c.map(t=>Math.min(255,Math.round(t*k)));
+        ctx.fillStyle='rgb('+col[0]+','+col[1]+','+col[2]+')';
+        ctx.beginPath();
+        v.forEach((p,j)=>{const X=S/2+p[0]*R, Y=S/2-p[1]*R;
+          j?ctx.lineTo(X,Y):ctx.moveTo(X,Y)});
+        ctx.closePath(); ctx.fill();
+      });
+    };
+  }
+
+  const draws=['navmark','footmark']
+    .map(id=>document.getElementById(id)).filter(Boolean).map(make);
+  if(!draws.length) return;
+
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){
+    draws.forEach(d=>d(0,0)); return;
+  }
+  (function loop(ms){
+    const t=ms/1000;
+    const ry=Math.sin(t*0.16)*0.62;
+    const rx=Math.sin(t*0.11)*0.16;
+    draws.forEach(d=>d(ry,rx));
+    requestAnimationFrame(loop);
+  })(0);
+})();
+
+(function(){
+  const nav=document.getElementById('nav');
+  const io=new IntersectionObserver(([e])=>nav.classList.toggle('stuck',!e.isIntersecting),
+    {rootMargin:'-69px 0px 0px 0px'});
+  io.observe(document.querySelector('.doc-head'));
+})();
+</script>
+</body>
+</html>

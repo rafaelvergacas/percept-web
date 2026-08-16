@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terms and Conditions — Percep2</title>
+<meta name="description" content="The rules for using Percep2, what is not allowed in the app, and what happens when someone breaks them.">
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/space-grotesk-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/space-grotesk-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(fonts/inter-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(fonts/inter-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --void:#0B0D12; --ink:#12141A; --surface:#1A1D24; --line:#262A33;
+  --graphite:#363B45; --slate:#8A909C; --mist:#E4E6EB; --paper:#F7F8FA;
+  --blue:#5B6CFF; --blue-l:#7A8CFF; --blue-d:#3846C4;
+
+  --fs-display:clamp(2.35rem, 1.7rem + 2.6vw, 3.5rem);
+  --fs-h1:clamp(1.95rem, 1.6rem + 1.5vw, 2.5rem);
+  --fs-h2:clamp(1.5rem, 1.3rem + .9vw, 1.75rem);
+  --fs-h3:1.25rem;
+  --fs-b:1rem;
+  --fs-s:.875rem;
+  --fs-xs:.75rem;
+  --fs-lg:1.125rem;
+
+  --disp:'Space Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --text:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(1.25rem,5vw,5rem);
+  --sec:clamp(72px,9vw,120px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--mist);font-family:var(--text);
+  font-size:var(--fs-b);line-height:1.625;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--disp);line-height:1.06;letter-spacing:-.035em;
+  color:var(--paper);font-weight:700}
+h1{font-size:var(--fs-h1);letter-spacing:-.03em}
+h3{font-size:var(--fs-h3);letter-spacing:-.01em;line-height:1.35}
+p{max-width:68ch}
+a{color:inherit}
+.eyebrow{font-family:var(--disp);font-size:var(--fs-xs);font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--slate);
+  display:block;margin-bottom:1.4rem}
+.dim{color:var(--slate)}
+
+/* ---- buttons ---- */
+@media(max-width:640px){.btn{height:52px!important}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:var(--disp);font-weight:600;font-size:1rem;letter-spacing:-.01em;
+  height:48px;padding:0 20px;border-radius:8px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:background .12s var(--ease),border-color .12s var(--ease),color .12s var(--ease)}
+.btn-p{background:var(--blue);color:#fff}
+.btn-p:hover{background:var(--blue-d)}
+.btn-s{border-color:#3A4050;color:var(--mist);background:transparent}
+.btn-s:hover{border-color:var(--slate)}
+.btn:focus-visible{outline:2px solid var(--blue-l);outline-offset:3px}
+.link{color:var(--blue-l);font-weight:600;text-decoration:none}
+.link:hover{text-decoration:underline}
+
+/* ---- nav ---- */
+nav{position:sticky;top:0;z-index:50;background:rgba(11,13,18,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid transparent;
+  transition:border-color .2s var(--ease)}
+nav.stuck{border-bottom-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;
+  height:68px}
+.lock{display:flex;align-items:center;gap:11px;text-decoration:none}
+.lock canvas{width:28px;height:28px;display:block}
+.lock span{font-family:var(--disp);font-weight:700;font-size:1.15rem;
+  letter-spacing:-.04em;color:var(--paper)}
+nav .btn{height:40px;font-size:.9rem;padding:0 1.1rem}
+
+/* ---- document ---- */
+.doc{padding-block:clamp(3rem,6vw,4.5rem) var(--sec)}
+.doc-head{border-bottom:1px solid var(--line);padding-bottom:2.4rem;margin-bottom:2.8rem}
+.doc-head h1{margin-bottom:1.1rem}
+.doc-head .lede{font-size:var(--fs-lg);color:var(--mist);opacity:.86;margin-bottom:1.4rem}
+.updated{font-size:var(--fs-s);color:var(--slate)}
+.doc-body{max-width:760px}
+.doc-body h2{font-family:var(--disp);font-size:var(--fs-h2);letter-spacing:-.02em;
+  color:var(--paper);margin-top:3.4rem;margin-bottom:1rem;scroll-margin-top:92px}
+.doc-body h3{margin-top:2.1rem;margin-bottom:.6rem}
+.doc-body p{margin-bottom:1.05rem;color:var(--mist);opacity:.9}
+.doc-body ul,.doc-body ol{margin:0 0 1.2rem;padding-left:1.3rem;max-width:68ch}
+.doc-body li{margin-bottom:.55rem;color:var(--mist);opacity:.9}
+.doc-body li::marker{color:var(--blue)}
+.doc-body strong{color:var(--paper);font-weight:600}
+
+/* ---- contents ---- */
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:24px;margin-bottom:1rem}
+.toc .eyebrow{margin-bottom:1rem}
+.toc ol{list-style:none;padding:0;margin:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2rem}
+.toc li{margin:0}
+.toc a{font-size:var(--fs-s);color:var(--slate);text-decoration:none;
+  transition:color .14s var(--ease)}
+.toc a:hover{color:var(--blue-l)}
+
+/* ---- callout ---- */
+.note{background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--blue);border-radius:10px;
+  padding:18px 20px;margin:0 0 1.6rem}
+.note.warn{border-left-color:#E0564F}
+.note p{margin:0;font-size:var(--fs-s);color:var(--slate);opacity:1}
+.note p+p{margin-top:.7rem}
+.note strong{color:var(--mist)}
+
+/* ---- rules ---- */
+.rules{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:26px 28px;margin:0 0 1.6rem}
+.rules ul{margin:0;padding-left:1.3rem}
+.rules li{margin-bottom:.7rem;font-size:var(--fs-s);line-height:1.65}
+.rules li:last-child{margin-bottom:0}
+.rules li strong{color:var(--paper)}
+
+footer{background:var(--ink);border-top:1px solid var(--line);
+  padding-block:2.6rem;font-size:var(--fs-s);color:var(--slate)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;
+  align-items:center;justify-content:space-between}
+footer a{text-decoration:none;color:var(--slate)}
+footer a:hover{color:var(--mist)}
+.flinks{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center}
+.flinks .soon{color:#4B5160}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:640px){.toc ol{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="lock" href="index.html"><canvas id="navmark" width="56" height="56"></canvas><span>percep2</span></a>
+    <a class="btn btn-s" href="index.html">Back to site</a>
+  </div>
+</nav>
+
+<main class="doc">
+  <div class="wrap">
+
+    <div class="doc-head">
+      <span class="eyebrow">Legal</span>
+      <h1>Terms and Conditions</h1>
+      <p class="lede">Percep2 puts you in a room with people you have never met. That only works
+        if everyone agrees on a small number of rules. These are them — written to be read, not
+        to be skipped.</p>
+      <p class="updated">Last updated 16 August 2026 · Applies to the Percep2 mobile app and percep2.com</p>
+    </div>
+
+    <div class="toc">
+      <span class="eyebrow">Contents</span>
+      <ol>
+        <li><a href="#agreement">1 · The agreement</a></li>
+        <li><a href="#eligibility">2 · Who can use Percep2</a></li>
+        <li><a href="#account">3 · Your account</a></li>
+        <li><a href="#rules">4 · Community Rules</a></li>
+        <li><a href="#reporting">5 · Reporting and enforcement</a></li>
+        <li><a href="#content">6 · Your content</a></li>
+        <li><a href="#ephemeral">7 · Messages expire</a></li>
+        <li><a href="#location">8 · Location</a></li>
+        <li><a href="#meeting">9 · Meeting people</a></li>
+        <li><a href="#service">10 · The service itself</a></li>
+        <li><a href="#paid">11 · Paid features</a></li>
+        <li><a href="#liability">12 · Liability</a></li>
+        <li><a href="#ending">13 · Ending the agreement</a></li>
+        <li><a href="#changes">14 · Changes to these terms</a></li>
+        <li><a href="#law">15 · Governing law</a></li>
+        <li><a href="#contact">16 · Contact</a></li>
+      </ol>
+    </div>
+
+    <div class="doc-body">
+
+      <h2 id="agreement">1 · The agreement</h2>
+      <p>These Terms and Conditions are an agreement between you and
+        <strong>Rafael da Silva Vergaças</strong>, established in Malta, who operates Percep2 ("we",
+        "us"). By creating an account you confirm you have read and accepted these terms and the
+        <a class="link" href="privacy.html">Privacy Policy</a>.</p>
+      <p>If you do not accept them, do not create an account. You cannot send messages or create
+        chats in Percep2 without accepting them first.</p>
+
+      <h2 id="eligibility">2 · Who can use Percep2</h2>
+      <p>You must be <strong>at least 16 years old</strong> to create an account. This is checked
+        at registration, and accounts found to belong to someone younger are deleted.</p>
+      <p>You must also have the legal capacity to enter into this agreement, and you must not be
+        someone we have previously removed from the service.</p>
+
+      <h2 id="account">3 · Your account</h2>
+      <ul>
+        <li>One account per person. Do not create accounts on behalf of anyone else.</li>
+        <li>Your email address must be real and belong to you — it is how you verify the account
+          and recover access.</li>
+        <li>Your display name does not have to be your legal name, but it must not impersonate
+          someone else.</li>
+        <li>You are responsible for keeping your password private, and for everything done through
+          your account.</li>
+        <li>Tell us at <a class="link" href="mailto:support@percep2.com">support@percep2.com</a>
+          if you believe someone else has access to it.</li>
+      </ul>
+
+      <h2 id="rules">4 · Community Rules</h2>
+      <p>These are the behaviours and content that are not allowed in Percep2, anywhere in the app
+        — General Chats, Open Chats, Closed Chats, private messages, display names, bios and
+        profile pictures alike.</p>
+
+      <div class="rules">
+        <ul>
+          <li><strong>No harassment.</strong> No bullying, stalking, intimidation, or repeatedly
+            contacting someone who does not want to hear from you.</li>
+          <li><strong>No hate speech.</strong> No attacking or degrading people on the basis of
+            race, ethnicity, national origin, religion, disability, disease, age, sex, gender
+            identity or sexual orientation.</li>
+          <li><strong>No threats or violence.</strong> No threatening harm to anyone, inciting
+            violence, or glorifying it.</li>
+          <li><strong>No sexual content.</strong> No nudity, pornography, or sexually explicit
+            material. No unsolicited sexual advances or sexually explicit messages to people who
+            have not invited them.</li>
+          <li><strong>Nothing involving minors.</strong> Any sexual content involving a minor, or
+            any attempt to contact a minor for sexual purposes, results in immediate permanent
+            removal and is reported to the authorities. There is no second chance and no appeal.</li>
+          <li><strong>No sharing other people's private information.</strong> No posting someone's
+            address, phone number, workplace, photographs or location without their consent.</li>
+          <li><strong>No illegal activity.</strong> No selling or arranging the sale of drugs,
+            weapons, stolen goods, counterfeit items or anything else prohibited by law.</li>
+          <li><strong>No spam or scams.</strong> No bulk or repetitive messaging, no phishing, no
+            fraud, no pyramid schemes, no unsolicited advertising.</li>
+          <li><strong>No impersonation.</strong> Do not pretend to be another person, a business,
+            or an official body.</li>
+          <li><strong>No malicious software or links.</strong> No malware, no links designed to
+            steal credentials or harm someone's device.</li>
+          <li><strong>No interfering with the service.</strong> No bots, scraping, automated
+            account creation, reverse engineering, falsifying your location, or attempting to
+            access other people's accounts or data.</li>
+        </ul>
+      </div>
+
+      <div class="note warn">
+        <p><strong>Percep2 is not a place to meet children and it is not a place to send anyone
+          sexual material they did not ask for.</strong> Those two rules are enforced without
+          discretion.</p>
+      </div>
+
+      <h2 id="reporting">5 · Reporting and enforcement</h2>
+      <p>You can <strong>block</strong> any user from their profile. A blocked user cannot message
+        you, and you stop seeing them.</p>
+      <p>You can <strong>report</strong> any message or any profile from inside the app. Reports go
+        to a person who reads them. Tell us what happened — the more specific you are, the faster
+        it gets resolved.</p>
+      <p>Where a report is justified, or where we otherwise become aware of a breach, we may:</p>
+      <ul>
+        <li>remove the content;</li>
+        <li>hide or deactivate a chat;</li>
+        <li>permanently delete the account.</li>
+      </ul>
+      <p>Whenever we remove your content or delete your account, <strong>we will email you to say
+        what we did and why</strong> — which rule was breached, the content concerned, and how to
+        challenge it. Those decisions are made by a person, not automatically.</p>
+      <p>We act in proportion to what happened and how often. Serious breaches — threats, anything
+        involving minors, sexual content sent to someone who did not ask for it — skip straight to
+        permanent removal.</p>
+      <p>If you believe your account was removed in error, write to
+        <a class="link" href="mailto:support@percep2.com">support@percep2.com</a> and we will
+        review it.</p>
+      <p>Reporting abuse to us is not a substitute for reporting a crime. If someone is in danger,
+        contact the police.</p>
+
+      <h2 id="content">6 · Your content</h2>
+      <p>Your messages, profile picture and bio remain <strong>yours</strong>. We do not claim
+        ownership of anything you write or upload.</p>
+      <p>To operate the app we need a limited licence: by posting content you grant us a
+        non-exclusive, royalty-free licence to store, transmit and display that content, for as
+        long as it exists on the service and solely for the purpose of running Percep2. That
+        licence ends when the content does — which, given section 7, is soon.</p>
+      <p>You confirm that you have the right to post what you post, and that it does not infringe
+        anyone else's rights.</p>
+
+      <h2 id="ephemeral">7 · Messages expire</h2>
+      <p>Percep2 deletes messages on a schedule: <strong>7 days</strong> in Open Chats,
+        <strong>30 days</strong> in Closed Chats and private conversations. Open Chats themselves
+        expire two hours after they are created unless converted to a Closed Chat.</p>
+      <p>This is how the product is meant to work. Percep2 is <strong>not a storage service</strong>
+        and not a backup. Do not use it to keep anything you would be upset to lose, and do not
+        expect to be able to retrieve a conversation later.</p>
+
+      <h2 id="location">8 · Location</h2>
+      <p>Percep2 needs your device's location to place you in the right area chat. You grant that
+        permission through your operating system and can withdraw it at any time — the app's area
+        features stop working, but your account remains.</p>
+      <p>Location accuracy depends on your device and your surroundings, and we do not guarantee
+        it. Percep2 must not be relied on for emergencies, navigation, or any situation where
+        being in the wrong place has consequences.</p>
+      <p>Deliberately falsifying your location to appear in an area you are not in is a breach of
+        section 4.</p>
+
+      <h2 id="meeting">9 · Meeting people</h2>
+      <p>Percep2 connects you with strangers. <strong>We do not verify identities, run background
+        checks, or vet anyone.</strong> A verified email address proves an inbox exists — nothing
+        more than that.</p>
+      <p>If you choose to meet someone from Percep2 in person, you do so at your own risk. Meet in
+        a public place, tell someone where you are going, and leave if you are uncomfortable.
+        We are not responsible for the conduct of any user, online or offline.</p>
+
+      <h2 id="service">10 · The service itself</h2>
+      <p>Percep2 is provided <strong>as is</strong>. We do not promise it will be available without
+        interruption, free of errors, or that anyone will be nearby to talk to — the app depends on
+        other people being in your area, and in a quiet area it will be quiet.</p>
+      <p>We may change, suspend or discontinue any part of the service, and we may impose limits on
+        use. Where a change materially affects you, we will give notice by email and on
+        percep2.com.</p>
+
+      <h2 id="paid">11 · Paid features</h2>
+      <p>Percep2 is currently <strong>free</strong>, including the Professional account type. If we
+        introduce paid features in the future, the price and terms will be shown before you are
+        asked to pay, and any purchase will be handled by Apple or Google under their own terms —
+        including their refund policies.</p>
+      <p>Nothing you have today will be taken away and sold back to you without notice.</p>
+
+      <h2 id="liability">12 · Liability</h2>
+      <p>Nothing in these terms limits liability for death or personal injury caused by negligence,
+        for fraud, or for anything else that cannot be limited under Maltese or EU law. Your
+        statutory rights as a consumer are unaffected.</p>
+      <p>Subject to that, we are not liable for indirect or consequential loss, for lost data or
+        lost messages, for the conduct of other users, or for anything arising from your use of the
+        app that we could not reasonably have foreseen.</p>
+
+      <h2 id="ending">13 · Ending the agreement</h2>
+      <p>You can end it at any time by
+        <a class="link" href="delete-account.html">deleting your account</a> — immediately, from
+        inside the app, without asking us.</p>
+      <p>We may suspend or terminate your account if you breach these terms, if we are required to
+        by law, or if we discontinue the service. Where the reason is not a serious breach, we will
+        give notice.</p>
+      <p>Sections 6, 12 and 15 survive the end of this agreement.</p>
+
+      <h2 id="changes">14 · Changes to these terms</h2>
+      <p>We may update these terms as the app changes. The date at the top always reflects the
+        current version. Where a change is material, we will tell you by email and post it on
+        percep2.com before it takes
+        effect, and continuing to use Percep2 after that means you accept the new version. If you
+        do not, delete your account.</p>
+
+      <h2 id="law">15 · Governing law</h2>
+      <p>These terms are governed by the laws of <strong>Malta</strong>. Disputes fall to the
+        courts of Malta.</p>
+      <p>If you are a consumer resident in the EU, this does not deprive you of the protection of
+        the mandatory consumer laws of your own country, and you may bring proceedings there.</p>
+
+      <h2 id="contact">16 · Contact</h2>
+      <p>Anything about these terms, a report, or an account decision:
+        <a class="link" href="mailto:support@percep2.com">support@percep2.com</a>. This is also the
+        single point of contact for users under the EU Digital Services Act, and we answer in
+        English.</p>
+      <p><strong>Authorities.</strong> Member State authorities, the European Commission and the
+        European Board for Digital Services may contact us at the same address, in English.</p>
+      <p><strong>Copyright and trademark.</strong> If something in Percep2 infringes your
+        intellectual property, write to
+        <a class="link" href="mailto:support@percep2.com">support@percep2.com</a> with a link or
+        description of the content, what right you hold, and your contact details. We remove
+        infringing material.</p>
+      <p>Privacy and data protection requests: <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a>,
+        and the <a class="link" href="privacy.html">Privacy Policy</a> covers what we collect and why.</p>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="lock" href="index.html"><canvas id="footmark" width="48" height="48"></canvas>
+      <span style="font-size:1rem">percep2 — look around you</span></a>
+    <div class="flinks">
+      <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+      <a href="delete-account.html">Delete account</a>
+      <a href="mailto:support@percep2.com">Contact</a>
+      <span class="soon">App Store &amp; Google Play — coming soon</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const HEX=[], N=6;
+  for(let i=0;i<N;i++){
+    const a=Math.PI/2 - i*Math.PI/3;
+    HEX.push([Math.cos(a),Math.sin(a),0]);
+  }
+  const D=0.52;
+  const FRONT=[0,0,D], BACK=[0,0,-D];
+  const FILL=[[0x7A,0x8C,0xFF],[0x5B,0x6C,0xFF],[0x38,0x46,0xC4],
+              [0x20,0x23,0x28],[0x2B,0x2F,0x39],[0x36,0x3B,0x45]];
+  const faces=[];
+  for(let i=0;i<N;i++){
+    faces.push({v:[FRONT,HEX[i],HEX[(i+1)%N]], c:FILL[i]});
+    faces.push({v:[BACK,HEX[(i+1)%N],HEX[i]], c:FILL[i].map(x=>Math.round(x*0.62))});
+  }
+  const L=(()=>{const v=[-.5,.72,.85],l=Math.hypot(...v);return v.map(c=>c/l)})();
+
+  function make(cv){
+    const ctx=cv.getContext('2d'), S=cv.width, R=S*0.40;
+    return function(ry,rx){
+      ctx.clearRect(0,0,S,S);
+      const rot=p=>{
+        let [x,y,z]=p;
+        let y2=y*Math.cos(rx)-z*Math.sin(rx), z2=y*Math.sin(rx)+z*Math.cos(rx);
+        return [x*Math.cos(ry)+z2*Math.sin(ry), y2, -x*Math.sin(ry)+z2*Math.cos(ry)];
+      };
+      faces.map(f=>{
+        const v=f.v.map(rot);
+        return {v,c:f.c,z:(v[0][2]+v[1][2]+v[2][2])/3};
+      }).sort((p,q)=>p.z-q.z).forEach(({v,c})=>{
+        const u=[v[1][0]-v[0][0],v[1][1]-v[0][1],v[1][2]-v[0][2]];
+        const w=[v[2][0]-v[0][0],v[2][1]-v[0][1],v[2][2]-v[0][2]];
+        let n=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]];
+        const nl=Math.hypot(...n); n=n.map(t=>t/nl);
+        if(n[2]<=0.015) return;
+        const lam=Math.max(0,n[0]*L[0]+n[1]*L[1]+n[2]*L[2]);
+        const k=0.62+lam*0.62;
+        const col=c.map(t=>Math.min(255,Math.round(t*k)));
+        ctx.fillStyle='rgb('+col[0]+','+col[1]+','+col[2]+')';
+        ctx.beginPath();
+        v.forEach((p,j)=>{const X=S/2+p[0]*R, Y=S/2-p[1]*R;
+          j?ctx.lineTo(X,Y):ctx.moveTo(X,Y)});
+        ctx.closePath(); ctx.fill();
+      });
+    };
+  }
+
+  const draws=['navmark','footmark']
+    .map(id=>document.getElementById(id)).filter(Boolean).map(make);
+  if(!draws.length) return;
+
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){
+    draws.forEach(d=>d(0,0)); return;
+  }
+  (function loop(ms){
+    const t=ms/1000;
+    const ry=Math.sin(t*0.16)*0.62;
+    const rx=Math.sin(t*0.11)*0.16;
+    draws.forEach(d=>d(ry,rx));
+    requestAnimationFrame(loop);
+  })(0);
+})();
+
+(function(){
+  const nav=document.getElementById('nav');
+  const io=new IntersectionObserver(([e])=>nav.classList.toggle('stuck',!e.isIntersecting),
+    {rootMargin:'-69px 0px 0px 0px'});
+  io.observe(document.querySelector('.doc-head'));
+})();
+</script>
+</body>
+</html>

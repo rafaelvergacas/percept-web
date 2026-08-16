@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Delete your Percep2 account</title>
+<meta name="description" content="How to delete your Percep2 account and everything attached to it. Two taps in the app, immediate and permanent.">
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/space-grotesk-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/space-grotesk-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(fonts/inter-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(fonts/inter-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --void:#0B0D12; --ink:#12141A; --surface:#1A1D24; --line:#262A33;
+  --graphite:#363B45; --slate:#8A909C; --mist:#E4E6EB; --paper:#F7F8FA;
+  --blue:#5B6CFF; --blue-l:#7A8CFF; --blue-d:#3846C4;
+
+  --fs-display:clamp(2.35rem, 1.7rem + 2.6vw, 3.5rem);
+  --fs-h1:clamp(1.95rem, 1.6rem + 1.5vw, 2.5rem);
+  --fs-h2:clamp(1.5rem, 1.3rem + .9vw, 1.75rem);
+  --fs-h3:1.25rem;
+  --fs-b:1rem;
+  --fs-s:.875rem;
+  --fs-xs:.75rem;
+  --fs-lg:1.125rem;
+
+  --disp:'Space Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --text:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(1.25rem,5vw,5rem);
+  --sec:clamp(72px,9vw,120px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--mist);font-family:var(--text);
+  font-size:var(--fs-b);line-height:1.625;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--disp);line-height:1.06;letter-spacing:-.035em;
+  color:var(--paper);font-weight:700}
+h1{font-size:var(--fs-h1);letter-spacing:-.03em}
+h3{font-size:var(--fs-h3);letter-spacing:-.01em;line-height:1.35}
+p{max-width:68ch}
+a{color:inherit}
+.eyebrow{font-family:var(--disp);font-size:var(--fs-xs);font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--slate);
+  display:block;margin-bottom:1.4rem}
+.dim{color:var(--slate)}
+
+/* ---- buttons ---- */
+@media(max-width:640px){.btn{height:52px!important}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:var(--disp);font-weight:600;font-size:1rem;letter-spacing:-.01em;
+  height:48px;padding:0 20px;border-radius:8px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:background .12s var(--ease),border-color .12s var(--ease),color .12s var(--ease)}
+.btn-p{background:var(--blue);color:#fff}
+.btn-p:hover{background:var(--blue-d)}
+.btn-s{border-color:#3A4050;color:var(--mist);background:transparent}
+.btn-s:hover{border-color:var(--slate)}
+.btn:focus-visible{outline:2px solid var(--blue-l);outline-offset:3px}
+.link{color:var(--blue-l);font-weight:600;text-decoration:none}
+.link:hover{text-decoration:underline}
+
+/* ---- nav ---- */
+nav{position:sticky;top:0;z-index:50;background:rgba(11,13,18,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid transparent;
+  transition:border-color .2s var(--ease)}
+nav.stuck{border-bottom-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;
+  height:68px}
+.lock{display:flex;align-items:center;gap:11px;text-decoration:none}
+.lock canvas{width:28px;height:28px;display:block}
+.lock span{font-family:var(--disp);font-weight:700;font-size:1.15rem;
+  letter-spacing:-.04em;color:var(--paper)}
+nav .btn{height:40px;font-size:.9rem;padding:0 1.1rem}
+
+/* ---- document ---- */
+.doc{padding-block:clamp(3rem,6vw,4.5rem) var(--sec)}
+.doc-head{border-bottom:1px solid var(--line);padding-bottom:2.4rem;margin-bottom:2.8rem}
+.doc-head h1{margin-bottom:1.1rem}
+.doc-head .lede{font-size:var(--fs-lg);color:var(--mist);opacity:.86;margin-bottom:1.4rem}
+.updated{font-size:var(--fs-s);color:var(--slate)}
+.doc-body{max-width:760px}
+.doc-body h2{font-family:var(--disp);font-size:var(--fs-h2);letter-spacing:-.02em;
+  color:var(--paper);margin-top:3.4rem;margin-bottom:1rem;scroll-margin-top:92px}
+.doc-body h3{margin-top:2.1rem;margin-bottom:.6rem}
+.doc-body p{margin-bottom:1.05rem;color:var(--mist);opacity:.9}
+.doc-body ul,.doc-body ol{margin:0 0 1.2rem;padding-left:1.3rem;max-width:68ch}
+.doc-body li{margin-bottom:.55rem;color:var(--mist);opacity:.9}
+.doc-body li::marker{color:var(--blue)}
+.doc-body strong{color:var(--paper);font-weight:600}
+
+/* ---- steps ---- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
+  margin:2.2rem 0 1.6rem;max-width:none}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:24px;transition:border-color .16s var(--ease)}
+.step:hover{border-color:#2F3543}
+.step .n{font-family:var(--disp);font-size:var(--fs-s);font-weight:700;
+  color:var(--blue);letter-spacing:.1em;display:block;margin-bottom:.9rem}
+.step h3{font-size:1.1rem;margin:0 0 .55rem}
+.step p{font-size:var(--fs-s);color:var(--slate);line-height:1.6;margin:0;opacity:1}
+
+/* ---- table ---- */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;
+  margin:0 0 1.6rem;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:var(--fs-s)}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);
+  vertical-align:top;line-height:1.6}
+thead th{font-family:var(--disp);font-weight:600;font-size:var(--fs-xs);
+  letter-spacing:.08em;text-transform:uppercase;color:var(--paper);
+  background:var(--ink)}
+tbody td{color:var(--slate)}
+tbody td:first-child{color:var(--mist)}
+tbody tr:last-child td{border-bottom:none}
+
+/* ---- callout ---- */
+.note{background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--blue);border-radius:10px;
+  padding:18px 20px;margin:0 0 1.6rem}
+.note.warn{border-left-color:#E0564F}
+.note p{margin:0;font-size:var(--fs-s);color:var(--slate);opacity:1}
+.note p+p{margin-top:.7rem}
+.note strong{color:var(--mist)}
+
+footer{background:var(--ink);border-top:1px solid var(--line);
+  padding-block:2.6rem;font-size:var(--fs-s);color:var(--slate)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;
+  align-items:center;justify-content:space-between}
+footer a{text-decoration:none;color:var(--slate)}
+footer a:hover{color:var(--mist)}
+.flinks{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center}
+.flinks .soon{color:#4B5160}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:900px){.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="lock" href="index.html"><canvas id="navmark" width="56" height="56"></canvas><span>percep2</span></a>
+    <a class="btn btn-s" href="index.html">Back to site</a>
+  </div>
+</nav>
+
+<main class="doc">
+  <div class="wrap">
+
+    <div class="doc-head">
+      <span class="eyebrow">Your account</span>
+      <h1>Delete your Percep2 account</h1>
+      <p class="lede">You can do this yourself, from inside the app, in about ten seconds. You do
+        not have to email anyone, wait for approval, or explain why. It happens immediately and it
+        cannot be undone.</p>
+      <p class="updated">Applies to the Percep2 mobile app · Last updated 16 August 2026</p>
+    </div>
+
+    <div class="doc-body">
+
+      <h2 id="how" style="margin-top:0">How to do it</h2>
+
+      <div class="steps">
+        <div class="step"><span class="n">01</span>
+          <h3>Open the Menu</h3>
+          <p>Launch Percep2 and tap <strong>Menu</strong> in the bottom tab bar.</p></div>
+        <div class="step"><span class="n">02</span>
+          <h3>Go to Account Settings</h3>
+          <p>Tap <strong>Account Settings</strong>, then scroll to the bottom of the page to the
+            section marked <strong>Danger Zone</strong>.</p></div>
+        <div class="step"><span class="n">03</span>
+          <h3>Confirm twice</h3>
+          <p>Tap <strong>Delete Account</strong>. You will be asked to confirm twice — that is
+            deliberate. After the second confirmation you are signed out and the account is gone.</p></div>
+      </div>
+
+      <div class="note warn">
+        <p><strong>There is no undo and no grace period.</strong> Nothing is archived, nothing sits
+          in a recoverable state for 30 days, and support cannot bring an account back. If you
+          think you might want the account later, sign out instead of deleting.</p>
+      </div>
+
+      <h2 id="deleted">What gets deleted</h2>
+      <p>All of the following is erased from our database the moment you confirm:</p>
+      <ul>
+        <li>Your <strong>account</strong> — email address, password hash, display name, date of
+          birth, gender, country of origin and bio</li>
+        <li>Your <strong>profile picture</strong>, removed from file storage</li>
+        <li>Your <strong>last known coordinates</strong> and the time they were recorded</li>
+        <li><strong>Every message you have sent</strong>, in every chat — General, Open, Closed and
+          private</li>
+        <li>Your <strong>membership of every chat</strong> you had joined</li>
+        <li>Your <strong>push notification tokens</strong>, so no device can receive a notification
+          for you again</li>
+        <li>Your <strong>blocks</strong> — both people you blocked and records of you being blocked</li>
+        <li>Chats you had <strong>hidden or dismissed</strong></li>
+        <li>Messages you sent to <strong>Help &amp; Support</strong></li>
+        <li>Your <strong>account type, subscription and feature usage</strong> records</li>
+      </ul>
+      <p>This runs as a single database transaction. Either all of it is deleted or none of it is —
+        there is no state where half your data survives.</p>
+
+      <h2 id="kept">What happens to chats you created</h2>
+      <p>One thing cannot simply be deleted, and we would rather explain it than leave it vague.</p>
+      <p>If you created a chat that other people joined and talked in, deleting that chat outright
+        would also destroy <em>their</em> messages — messages that belong to them, not to you. So
+        instead:</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>What</th><th>What happens to it</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Open and Closed Chats you created</td>
+              <td>Deactivated — they stop accepting new messages and disappear from discovery. The
+                link back to you is removed, so they are no longer attributed to any account.</td>
+            </tr>
+            <tr>
+              <td>Private chats you were in</td>
+              <td>Deactivated. Your side of the conversation is deleted; the other person's own
+                messages remain until their retention window expires.</td>
+            </tr>
+            <tr>
+              <td>Area General Chats</td>
+              <td>Unaffected. These belong to the geographic area, not to any user, and nobody
+                creates them by hand.</td>
+            </tr>
+            <tr>
+              <td>Other people's messages in your chats</td>
+              <td>Left alone, and deleted on the normal schedule — 7 days for Open Chats, 30 days
+                for Closed and private chats.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The practical result is that within 30 days of your deletion, nothing you were involved in
+        remains anywhere in the system.</p>
+
+      <h2 id="backups">Backups and logs</h2>
+      <p>Your data is removed from the live database immediately. Encrypted database backups are
+        kept on a rolling window for disaster recovery and are overwritten within
+        <strong>30 days</strong>, after which no copy of your data exists in them either. Backups
+        are never used to restore an individual account.</p>
+      <p>Server logs may briefly contain technical records of requests. They are rotated out on a
+        short operational cycle and are not used to reconstruct a profile.</p>
+
+      <h2 id="cannot">If you cannot open the app</h2>
+      <p>Uninstalled Percep2, lost the phone, or locked out of the account? Email
+        <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a> from
+        <strong>the address the account was registered with</strong>, with the subject line
+        <strong>Delete my account</strong>.</p>
+      <p>We use the sending address to confirm it is really your account — which is why the request
+        has to come from that address. We will delete the account and confirm by reply within
+        <strong>30 days</strong>, and normally much sooner. The deletion is the same one described
+        above; nothing extra is retained because it went through email.</p>
+      <div class="note">
+        <p><strong>Uninstalling the app does not delete your account.</strong> Removing Percep2 from
+          your phone leaves the account, your profile and your messages exactly where they were.
+          Delete the account first, then uninstall.</p>
+      </div>
+
+      <h2 id="rights">Your other rights</h2>
+      <p>Deletion is one of several rights you have under GDPR. You can also ask for a copy of your
+        data, have it corrected, or object to how it is used — all at
+        <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a>.</p>
+      <p>The full picture of what Percep2 collects and why is in the
+        <a class="link" href="privacy.html">Privacy Policy</a>.</p>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="lock" href="index.html"><canvas id="footmark" width="48" height="48"></canvas>
+      <span style="font-size:1rem">percep2 — look around you</span></a>
+    <div class="flinks">
+      <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+      <a href="delete-account.html">Delete account</a>
+      <a href="mailto:support@percep2.com">Contact</a>
+      <span class="soon">App Store &amp; Google Play — coming soon</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const HEX=[], N=6;
+  for(let i=0;i<N;i++){
+    const a=Math.PI/2 - i*Math.PI/3;
+    HEX.push([Math.cos(a),Math.sin(a),0]);
+  }
+  const D=0.52;
+  const FRONT=[0,0,D], BACK=[0,0,-D];
+  const FILL=[[0x7A,0x8C,0xFF],[0x5B,0x6C,0xFF],[0x38,0x46,0xC4],
+              [0x20,0x23,0x28],[0x2B,0x2F,0x39],[0x36,0x3B,0x45]];
+  const faces=[];
+  for(let i=0;i<N;i++){
+    faces.push({v:[FRONT,HEX[i],HEX[(i+1)%N]], c:FILL[i]});
+    faces.push({v:[BACK,HEX[(i+1)%N],HEX[i]], c:FILL[i].map(x=>Math.round(x*0.62))});
+  }
+  const L=(()=>{const v=[-.5,.72,.85],l=Math.hypot(...v);return v.map(c=>c/l)})();
+
+  function make(cv){
+    const ctx=cv.getContext('2d'), S=cv.width, R=S*0.40;
+    return function(ry,rx){
+      ctx.clearRect(0,0,S,S);
+      const rot=p=>{
+        let [x,y,z]=p;
+        let y2=y*Math.cos(rx)-z*Math.sin(rx), z2=y*Math.sin(rx)+z*Math.cos(rx);
+        return [x*Math.cos(ry)+z2*Math.sin(ry), y2, -x*Math.sin(ry)+z2*Math.cos(ry)];
+      };
+      faces.map(f=>{
+        const v=f.v.map(rot);
+        return {v,c:f.c,z:(v[0][2]+v[1][2]+v[2][2])/3};
+      }).sort((p,q)=>p.z-q.z).forEach(({v,c})=>{
+        const u=[v[1][0]-v[0][0],v[1][1]-v[0][1],v[1][2]-v[0][2]];
+        const w=[v[2][0]-v[0][0],v[2][1]-v[0][1],v[2][2]-v[0][2]];
+        let n=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]];
+        const nl=Math.hypot(...n); n=n.map(t=>t/nl);
+        if(n[2]<=0.015) return;
+        const lam=Math.max(0,n[0]*L[0]+n[1]*L[1]+n[2]*L[2]);
+        const k=0.62+lam*0.62;
+        const col=c.map(t=>Math.min(255,Math.round(t*k)));
+        ctx.fillStyle='rgb('+col[0]+','+col[1]+','+col[2]+')';
+        ctx.beginPath();
+        v.forEach((p,j)=>{const X=S/2+p[0]*R, Y=S/2-p[1]*R;
+          j?ctx.lineTo(X,Y):ctx.moveTo(X,Y)});
+        ctx.closePath(); ctx.fill();
+      });
+    };
+  }
+
+  const draws=['navmark','footmark']
+    .map(id=>document.getElementById(id)).filter(Boolean).map(make);
+  if(!draws.length) return;
+
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){
+    draws.forEach(d=>d(0,0)); return;
+  }
+  (function loop(ms){
+    const t=ms/1000;
+    const ry=Math.sin(t*0.16)*0.62;
+    const rx=Math.sin(t*0.11)*0.16;
+    draws.forEach(d=>d(ry,rx));
+    requestAnimationFrame(loop);
+  })(0);
+})();
+
+(function(){
+  const nav=document.getElementById('nav');
+  const io=new IntersectionObserver(([e])=>nav.classList.toggle('stuck',!e.isIntersecting),
+    {rootMargin:'-69px 0px 0px 0px'});
+  io.observe(document.querySelector('.doc-head'));
+})();
+</script>
+</body>
+</html>
