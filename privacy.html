@@ -278,10 +278,18 @@ footer a:hover{color:var(--mist)}
       <h2 id="location">3 · How location is used</h2>
       <p>This is the one people ask about, so it gets its own section.</p>
       <p>Your device gives the app GPS coordinates when you grant location permission. The server
-        uses them for exactly one thing: deciding which area you are in. Coordinates are turned
-        into a <strong>geohash</strong> — a coarse grid cell covering the area around you — and it
-        is the cell, not the coordinate, that decides which General Chat you land in and which
-        nearby chats you can see.</p>
+        uses them to decide which areas you are in. Coordinates are turned into a
+        <strong>geohash</strong> — a coarse grid cell covering the area around you — and it is the
+        cell, not the coordinate, that decides which area chats you land in.</p>
+      <p>You are placed in <strong>two</strong> of them at once: a local cell roughly a kilometre
+        across, and a much larger one covering your country. Both are named after the place they
+        cover, so you always know how wide the room you are speaking in is.</p>
+      <p>Your device also asks its own operating system to turn your coordinates into a place name
+        — the district and country — the first time an area chat is created where you are. That
+        lookup happens <strong>on your phone</strong>, and only the resulting name is sent to us,
+        never as part of your profile.</p>
+      <p>Coordinates are used once more, to work out which nearby chats to show you and how far
+        away they are. Distances are calculated from a chat's centre point, not between users.</p>
       <p>Your most recent coordinates are stored on your account so the app knows where to place
         you when you reopen it. They are <strong>never shown to other users</strong>. Nobody in a
         chat can see your position, your address, your distance from them, or a pin on a map. The
@@ -352,7 +360,8 @@ footer a:hover{color:var(--mist)}
       </ul>
       <p>Other people using Percep2 see what you choose to show them: your display name, your
         profile picture and bio if you set them, and the messages you send in a chat. Anything you
-        write in a General or Open Chat is visible to everyone in that area.</p>
+        write in an area chat or an Open Chat is visible to everyone in that area — which, for
+        your country's area chat, means everyone in the country using Percep2.</p>
       <p>We will disclose data to authorities only where we are legally required to, and only to
         the extent required.</p>
 

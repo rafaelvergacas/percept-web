@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Percep2 — Talk to people nearby. Without adding anyone.</title>
-<meta name="description" content="Percep2 opens a chat with everyone within about a kilometre of you. No match, no follow, no swapping numbers.">
+<meta name="description" content="Percep2 puts you in the chat for where you are — your neighbourhood and your country. No match, no follow, no swapping numbers.">
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -182,6 +182,11 @@ details .a strong{color:var(--mist);font-weight:600}
 .final .btn{background:#fff;color:var(--blue-d)}
 .final .btn:hover{background:var(--paper)}
 .final .micro{color:rgba(255,255,255,.72)}
+.soon-badge{display:inline-block;font-family:var(--disp);font-weight:600;
+  font-size:1rem;letter-spacing:-.01em;line-height:1.3;
+  padding:14px 22px;border-radius:8px;
+  border:1px solid rgba(255,255,255,.4);color:#fff}
+@media(max-width:640px){.soon-badge{font-size:.9rem;padding:13px 18px}}
 
 footer{background:var(--ink);border-top:1px solid var(--line);
   padding-block:2.6rem;font-size:var(--fs-s);color:var(--slate)}
@@ -223,9 +228,9 @@ footer a:hover{color:var(--mist)}
   <div class="wrap hero-grid">
     <div>
       <h1 class="rv">Talk to people nearby.<br>Without adding anyone.</h1>
-      <p class="sub rv">Percep2 opens a chat with everyone within about a kilometre of you.
-        No match. No follow. No swapping numbers. You show up and you're already in
-        the conversation.</p>
+      <p class="sub rv">Percep2 puts you in the chat for where you are — one for your
+        neighbourhood, one for the whole country. No match. No follow. No swapping numbers.
+        You show up and you&rsquo;re already in the conversation.</p>
       <div class="cta-row rv">
         <a class="btn btn-p" href="#get">Get Percep2</a>
         <a class="btn btn-s" href="#how">See how it works</a>
@@ -248,7 +253,6 @@ footer a:hover{color:var(--mist)}
 <div class="proof">
   <div class="track" id="track"></div>
 </div>
-<p class="proof-note">EXAMPLE MESSAGES — REPLACE WITH REAL ONES ONCE YOUR TERMS ALLOW IT</p>
 
 <!-- 3 · CONFLICT -->
 <section>
@@ -282,14 +286,15 @@ footer a:hover{color:var(--mist)}
     <h2 class="rv">Open it. The conversation's already there.</h2>
     <div class="steps">
       <div class="step rv"><span class="n">01</span>
-        <h3>You land in your area's chat</h3>
-        <p>General Chat holds everyone within about a kilometre. No friend list, no request
-          to join. You open it and you're in.</p></div>
+        <h3>You're already in two rooms</h3>
+        <p>One for your neighbourhood, about a kilometre across, and one for the whole
+          country. Both named after the place they cover. No friend list, no request to
+          join — open the app and you're in.</p></div>
       <div class="step rv"><span class="n">02</span>
-        <h3>Or start one about something specific</h3>
-        <p>Football. Music. Whatever's going on. Still local, still open to whoever's around.
-          It disappears on its own after two hours — built for right now, not to become
-          another dead group on your phone.</p></div>
+        <h3>Discovery shows what else is on</h3>
+        <p>Chats people started about something specific — a match, a queue, a power cut.
+          Say something and it moves into your list. Ignore it and it stays out of your way.
+          Most vanish after two hours, built for right now.</p></div>
       <div class="step rv"><span class="n">03</span>
         <h3>If it was worth it, it keeps going</h3>
         <p>Whoever started the chat can turn it into a Closed Chat, and everyone already
@@ -322,10 +327,6 @@ footer a:hover{color:var(--mist)}
       <div class="ben rv"><h3>Your building, your office, your group</h3>
         <p>Message your whole building without anyone's number. Message everyone who works
           where you work. The group already exists — it's geographic.</p></div>
-      <div class="ben rv" style="background:transparent;border-style:dashed;
-           display:grid;place-items:center;text-align:center">
-        <p style="color:#5F6675">[TESTIMONIALS GO HERE ONCE YOU HAVE THEM —<br>
-          vertical video, 15–30s, shot on a phone]</p></div>
     </div>
   </div>
 </section>
@@ -338,19 +339,25 @@ footer a:hover{color:var(--mist)}
     <div class="faq">
       <details open class="rv"><summary>Can anyone tell where I am?</summary>
         <div class="a"><strong>No.</strong> Nobody sees your exact location — not other
-          users, not the people in your chats. Percep2 only needs to know that you're inside
-          the same one-kilometre area as the conversation. That's the whole of it. There's
-          no pin on a map, no address, no "300 metres away". You're in the area or you're
-          not.</div></details>
+          users, not the people in your chats. Percep2 only needs to know which area you are in — your neighbourhood, and your
+          country. That&rsquo;s the whole of it. There&rsquo;s no pin on a map, no address, no
+          &ldquo;300 metres away&rdquo;. You&rsquo;re in the area or you&rsquo;re not.</div></details>
       <details class="rv"><summary>Do I have to take private messages from strangers?</summary>
         <div class="a">No. You can switch private messages off and still use every chat
           normally. And you can block anyone.</div></details>
       <details class="rv"><summary>What if someone's a creep?</summary>
-        <div class="a">You block them on the spot. [DESCRIBE WHAT ELSE EXISTS TODAY —
-          reporting, moderation, message removal. Only write what already works.]</div></details>
+        <div class="a">You block them on the spot, from their profile, in any chat — not just
+          in private messages. Blocking hides their messages from you everywhere and stops them
+          messaging you. You can also <strong>report</strong> any message or any profile, with a
+          reason, and reports go to a person who reads them. Where a report holds up, the content
+          comes down or the account goes. If something is taken down, whoever posted it is told
+          why. And nothing lingers regardless: messages clear themselves out after 7 days in Open
+          Chats, 30 in Closed and private ones.</div></details>
       <details class="rv"><summary>Do I have to show my face or use my real name?</summary>
-        <div class="a">[CONFIRM: photo, bio and display name are all editable. Say whether
-          any of them is required, and whether the display name has to be a real name.]</div></details>
+        <div class="a">No to both. A <strong>display name is the only thing required</strong>,
+          and it does not have to be your real one — pick whatever you want people to call you.
+          Photo, bio, country and gender are all optional, all editable later, and you can leave
+          them empty or clear them at any time. Your email address is never shown to anyone.</div></details>
       <details class="rv"><summary>What does it cost?</summary>
         <div class="a">Nothing. The app is completely free — including the Professional
           account, which also costs nothing right now.</div></details>
@@ -367,12 +374,17 @@ footer a:hover{color:var(--mist)}
           on nearby. All three fit in the same chat, and that's the part that makes it
           work.</div></details>
       <details class="rv"><summary>Does it work where I live?</summary>
-        <div class="a">[DESCRIBE REAL COVERAGE AND THE DENSITY PROBLEM: the app needs other
-          people within a kilometre. Say what happens when the area is empty.]</div></details>
+        <div class="a">There is no country list and no waiting list — open the app anywhere and
+          you are in your area's chats immediately. That is why there are <strong>two</strong>:
+          your neighbourhood is roughly a kilometre across, and early on it may well be quiet.
+          The country-wide room is not. So a quiet street is never a dead end — it is one row
+          above a room with everyone else in it. As more people around you join, your
+          neighbourhood becomes the livelier of the two on its own. We are starting in
+          <strong>Malta</strong>, which is why it is worth being early there.</div></details>
     </div>
     <p class="faq-note rv">Something the page didn't answer? There are people reading.
-      Write to <a class="link" href="mailto:[EMAIL]">[EMAIL]</a> — we answer within
-      [TIMEFRAME]. Inside the app, Help &amp; Support in the menu goes straight to whoever
+      Write to <a class="link" href="mailto:support@percep2.com">support@percep2.com</a> — we answer within
+      7 days. Inside the app, Help &amp; Support in the menu goes straight to whoever
       builds Percep2.</p>
   </div>
 </section>
@@ -383,7 +395,7 @@ footer a:hover{color:var(--mist)}
     <h2 class="rv">Look around you.</h2>
     <p class="rv">There's a conversation happening less than a kilometre away.
       You just have to open it.</p>
-    <a class="btn rv" href="#">Get Percep2</a>
+    <div class="soon-badge rv">App Store &amp; Google Play — coming soon</div>
     <p class="micro rv" style="margin-top:1.2rem">Free. No match, no followers,
       no swapping numbers.</p>
   </div>
@@ -504,19 +516,18 @@ footer a:hover{color:var(--mist)}
    ============================================================ */
 (function(){
   const msgs=[
-    ['Vila Madalena','anyone know if the bakery on the corner is open?'],
-    ['Centro','crash on the main road, avoid it for the next hour'],
-    ['Praia Grande','beach closed today, too much wind'],
-    ['Pinheiros','new ramen place just opened, queue is short right now'],
-    ['Bloco B','whose car is blocking the garage'],
-    ['Ibirapuera','someone playing live music near the gate, worth the walk'],
-    ['Centro','looking for a bookshop around here, any tips?'],
-    ['Barra','who else is at the show? this crowd is huge']
+    ['Sliema','anyone know if the bakery on the corner is open?'],
+    ['Msida','crash on the main road, avoid it for the next hour'],
+    ['Gozo','beach closed today, too much wind'],
+    ['Gzira','new ramen place just opened, queue is short right now'],
+    ['Office Building','whose car is blocking the garage'],
+    ['Valetta','looking for a bookshop around here, any tips?'],
+    ['St Julians','who else is at the show? this crowd is huge']
   ];
   const t=document.getElementById('track');
   if(!t) return;
   const html=msgs.map(([p,m])=>`<span class="msg"><b>${p}</b> ${m}</span>`).join('');
-  t.innerHTML=html+html;                       // duas voltas = loop sem corte
+  t.innerHTML=html+html;
 })();
 
 /* ============================================================
