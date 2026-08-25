@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Delete your Percep2 account</title>
-<meta name="description" content="How to delete your Percep2 account and everything attached to it. Two taps in the app, immediate and permanent.">
+<title>Child Safety Standards — Percep2</title>
+<meta name="description" content="How Percep2 prevents, detects and responds to child sexual abuse and exploitation, and how to report a concern.">
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -102,21 +102,21 @@ nav .btn{height:40px;font-size:.9rem;padding:0 1.1rem}
 .doc-body li::marker{color:var(--blue)}
 .doc-body strong{color:var(--paper);font-weight:600}
 
-/* ---- steps ---- */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
-  margin:2.2rem 0 1.6rem;max-width:none}
-.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;
-  padding:24px;transition:border-color .16s var(--ease)}
-.step:hover{border-color:#2F3543}
-.step .n{font-family:var(--disp);font-size:var(--fs-s);font-weight:700;
-  color:var(--blue);letter-spacing:.1em;display:block;margin-bottom:.9rem}
-.step h3{font-size:1.1rem;margin:0 0 .55rem}
-.step p{font-size:var(--fs-s);color:var(--slate);line-height:1.6;margin:0;opacity:1}
+/* ---- contents ---- */
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:24px;margin-bottom:1rem}
+.toc .eyebrow{margin-bottom:1rem}
+.toc ol{list-style:none;padding:0;margin:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2rem}
+.toc li{margin:0}
+.toc a{font-size:var(--fs-s);color:var(--slate);text-decoration:none;
+  transition:color .14s var(--ease)}
+.toc a:hover{color:var(--blue-l)}
 
 /* ---- table ---- */
 .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;
   margin:0 0 1.6rem;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:var(--fs-s)}
+table{border-collapse:collapse;width:100%;min-width:580px;font-size:var(--fs-s)}
 th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);
   vertical-align:top;line-height:1.6}
 thead th{font-family:var(--disp);font-weight:600;font-size:var(--fs-xs);
@@ -130,7 +130,6 @@ tbody tr:last-child td{border-bottom:none}
 .note{background:var(--surface);border:1px solid var(--line);
   border-left:3px solid var(--blue);border-radius:10px;
   padding:18px 20px;margin:0 0 1.6rem}
-.note.warn{border-left-color:#E0564F}
 .note p{margin:0;font-size:var(--fs-s);color:var(--slate);opacity:1}
 .note p+p{margin-top:.7rem}
 .note strong{color:var(--mist)}
@@ -146,7 +145,7 @@ footer a:hover{color:var(--mist)}
 .fcopy{display:block;margin-top:1.6rem;font-size:var(--fs-xs);color:#4B5160}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media(max-width:900px){.steps{grid-template-columns:1fr}}
+@media(max-width:640px){.toc ol{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -162,124 +161,135 @@ footer a:hover{color:var(--mist)}
   <div class="wrap">
 
     <div class="doc-head">
-      <span class="eyebrow">Your account</span>
-      <h1>Delete your Percep2 account</h1>
-      <p class="lede">You can do this yourself, from inside the app, in about ten seconds. You do
-        not have to email anyone, wait for approval, or explain why. It happens immediately and it
-        cannot be undone.</p>
-      <p class="updated">Applies to the Percep2 mobile app · Last updated 16 August 2026</p>
+      <span class="eyebrow">Legal</span>
+      <h1>Child Safety Standards</h1>
+      <p class="lede">Percep2 is an adult service with a strict minimum age, and there is no
+        tolerance whatsoever for content or behaviour that sexualises or endangers a child.
+        This page sets out the standards we hold ourselves to, how to raise a concern, and
+        exactly what happens when someone does.</p>
+      <p class="updated">Last updated 25 August 2026 · Applies to the Percep2 mobile app and percep2.com</p>
+    </div>
+
+    <div class="toc">
+      <span class="eyebrow">Contents</span>
+      <ol>
+        <li><a href="#standards">1 · Our standards</a></li>
+        <li><a href="#age">2 · Minimum age</a></li>
+        <li><a href="#prohibited">3 · What is prohibited</a></li>
+        <li><a href="#report-app">4 · Reporting inside the app</a></li>
+        <li><a href="#report-direct">5 · Reporting to us directly</a></li>
+        <li><a href="#response">6 · What happens after a report</a></li>
+        <li><a href="#authorities">7 · Working with authorities</a></li>
+        <li><a href="#contact">8 · Point of contact</a></li>
+      </ol>
     </div>
 
     <div class="doc-body">
 
-      <h2 id="how" style="margin-top:0">How to do it</h2>
-
-      <div class="steps">
-        <div class="step"><span class="n">01</span>
-          <h3>Open the Menu</h3>
-          <p>Launch Percep2 and tap <strong>Menu</strong> in the bottom tab bar.</p></div>
-        <div class="step"><span class="n">02</span>
-          <h3>Go to Account Settings</h3>
-          <p>Tap <strong>Account Settings</strong>, then scroll to the bottom of the page to the
-            section marked <strong>Danger Zone</strong>.</p></div>
-        <div class="step"><span class="n">03</span>
-          <h3>Confirm twice</h3>
-          <p>Tap <strong>Delete Account</strong>. You will be asked to confirm twice — that is
-            deliberate. After the second confirmation you are signed out and the account is gone.</p></div>
-      </div>
-
-      <div class="note warn">
-        <p><strong>There is no undo and no grace period.</strong> Nothing is archived, nothing sits
-          in a recoverable state for 30 days, and support cannot bring an account back. If you
-          think you might want the account later, sign out instead of deleting.</p>
-      </div>
-
-      <h2 id="deleted">What gets deleted</h2>
-      <p>All of the following is erased from our database the moment you confirm:</p>
-      <ul>
-        <li>Your <strong>account</strong> — email address, password hash, display name, date of
-          birth, gender, country of origin and bio</li>
-        <li>Your <strong>profile picture</strong>, removed from file storage</li>
-        <li>Your <strong>last known coordinates</strong> and the time they were recorded</li>
-        <li><strong>Every message you have sent</strong>, in every chat — General, Open, Closed and
-          private</li>
-        <li>Your <strong>membership of every chat</strong> you had joined</li>
-        <li>Your <strong>push notification tokens</strong>, so no device can receive a notification
-          for you again</li>
-        <li>Your <strong>blocks</strong> — both people you blocked and records of you being blocked</li>
-        <li>Chats you had <strong>hidden or dismissed</strong></li>
-        <li>Messages you sent to <strong>Help &amp; Support</strong></li>
-        <li>Your <strong>account type, subscription and feature usage</strong> records</li>
-      </ul>
-      <p>This runs as a single database transaction. Either all of it is deleted or none of it is —
-        there is no state where half your data survives.</p>
-
-      <h2 id="kept">What happens to chats you created</h2>
-      <p>One thing cannot simply be deleted, and we would rather explain it than leave it vague.</p>
-      <p>If you created a chat that other people joined and talked in, deleting that chat outright
-        would also destroy <em>their</em> messages — messages that belong to them, not to you. So
-        instead:</p>
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr><th>What</th><th>What happens to it</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Open and Closed Chats you created</td>
-              <td>Deactivated — they stop accepting new messages and disappear from discovery. The
-                link back to you is removed, so they are no longer attributed to any account.</td>
-            </tr>
-            <tr>
-              <td>Private chats you were in</td>
-              <td>Deactivated. Your side of the conversation is deleted; the other person's own
-                messages remain until their retention window expires.</td>
-            </tr>
-            <tr>
-              <td>Area chats</td>
-              <td>Unaffected. These belong to the geographic area, not to any user, and nobody
-                creates them by hand.</td>
-            </tr>
-            <tr>
-              <td>Other people's messages in your chats</td>
-              <td>Left alone, and deleted on the normal schedule — 7 days for Open Chats, 30 days
-                for Closed and private chats.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p>The practical result is that within 30 days of your deletion, nothing you were involved in
-        remains anywhere in the system.</p>
-
-      <h2 id="backups">Backups and logs</h2>
-      <p>Your data is removed from the live database immediately. Encrypted database backups are
-        kept on a rolling window for disaster recovery and are overwritten within
-        <strong>30 days</strong>, after which no copy of your data exists in them either. Backups
-        are never used to restore an individual account.</p>
-      <p>Server logs may briefly contain technical records of requests. They are rotated out on a
-        short operational cycle and are not used to reconstruct a profile.</p>
-
-      <h2 id="cannot">If you cannot open the app</h2>
-      <p>Uninstalled Percep2, lost the phone, or locked out of the account? Email
-        <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a> from
-        <strong>the address the account was registered with</strong>, with the subject line
-        <strong>Delete my account</strong>.</p>
-      <p>We use the sending address to confirm it is really your account — which is why the request
-        has to come from that address. We will delete the account and confirm by reply within
-        <strong>30 days</strong>, and normally much sooner. The deletion is the same one described
-        above; nothing extra is retained because it went through email.</p>
       <div class="note">
-        <p><strong>Uninstalling the app does not delete your account.</strong> Removing Percep2 from
-          your phone leaves the account, your profile and your messages exactly where they were.
-          Delete the account first, then uninstall.</p>
+        <p><strong>If a child is in immediate danger, contact your local emergency services
+          first.</strong> In Malta that is 112. Report it to us as well, but do not wait for us
+          before calling.</p>
       </div>
 
-      <h2 id="rights">Your other rights</h2>
-      <p>Deletion is one of several rights you have under GDPR. You can also ask for a copy of your
-        data, have it corrected, or object to how it is used — all at
-        <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a>.</p>
-      <p>The full picture of what Percep2 collects and why is in the
-        <a class="link" href="privacy.html">Privacy Policy</a>.</p>
+      <h2 id="standards">1 · Our standards</h2>
+      <p>Percep2 prohibits child sexual abuse and exploitation — referred to below as CSAE — in
+        every form. This is not a moderation preference that gets weighed against other factors.
+        It is an absolute rule, and an account found to be involved is removed permanently, without
+        warning and without appeal.</p>
+      <p>These standards are written to meet Google Play's Child Safety Standards policy, and to
+        comply with Maltese and European Union law on the protection of minors and on the
+        reporting of child sexual abuse material.</p>
+      <p>Percep2 is built and run by one person. That makes the review queue short and the chain of
+        responsibility direct: a report about a child does not sit in a tier-one queue waiting to be
+        escalated. It reaches the person who can act on it.</p>
+
+      <h2 id="age">2 · Minimum age</h2>
+      <p>You must be at least <strong>16 years old</strong> to create a Percep2 account. This
+        matches the minimum age set out in our
+        <a class="link" href="privacy.html">Privacy Policy</a> and
+        <a class="link" href="terms.html">Terms</a>.</p>
+      <p>If we learn that an account belongs to someone under 16, we delete it and the messages
+        sent from it. We do not ask the account holder to prove otherwise first.</p>
+      <p>If you are a parent or guardian and believe your child has signed up, write to
+        <a class="link" href="mailto:safety@percep2.com">safety@percep2.com</a> and we will remove
+        the account. You do not need to know their password or the email they registered with —
+        the display name and rough location are usually enough for us to find it.</p>
+
+      <h2 id="prohibited">3 · What is prohibited</h2>
+      <p>The following are prohibited on Percep2 without exception. Note that while the minimum age
+        to use the service is 16, <strong>anyone under 18 is treated as a child</strong> for
+        everything in this section.</p>
+      <ul>
+        <li>Sexual content involving, depicting, or appearing to depict a person under 18 — whether
+          photographic, drawn, written, or generated by any tool.</li>
+        <li>Sexualising a child in any way, including commentary on a real child that presents them
+          in a sexual manner.</li>
+        <li>Grooming: building a relationship with a child in order to sexually exploit or abuse
+          them, or attempting to move such a conversation to another platform.</li>
+        <li>Soliciting sexual content or sexual contact from a person under 18.</li>
+        <li>Sextortion: threatening to release intimate material in order to coerce a child.</li>
+        <li>Trafficking a child, or advertising, facilitating or arranging their exploitation.</li>
+        <li>Sharing, requesting, or linking to child sexual abuse material anywhere, including in a
+          private chat or a profile picture.</li>
+      </ul>
+      <p>Attempting any of the above is treated the same as doing it. So is using Percep2 to make
+        contact that then continues elsewhere.</p>
+
+      <h2 id="report-app">4 · Reporting inside the app</h2>
+      <p>Every user profile in Percep2 can be reported from the app, and reporting takes a few
+        seconds. Open the profile, choose <strong>Report</strong>, and pick a reason.</p>
+      <p>There is a dedicated reason for this: <strong>&ldquo;Involves a minor&rdquo;</strong>,
+        described in the app as <em>sexual content involving a child, or contact with a child</em>.
+        Choosing it flags the report as a child safety matter and moves it to the front of the
+        queue.</p>
+      <p>You can add a description, and you can block the person at the same time. The person you
+        report is never told who reported them.</p>
+
+      <h2 id="report-direct">5 · Reporting to us directly</h2>
+      <p>If you cannot use the in-app report — because the account has already gone, because you
+        are not a Percep2 user, or because you are reporting on behalf of a child — write to
+        <a class="link" href="mailto:safety@percep2.com">safety@percep2.com</a>.</p>
+      <div class="note">
+        <p><strong>Please do not attach or forward the material itself.</strong> Possessing and
+          transmitting child sexual abuse material is a criminal offence in most jurisdictions,
+          including for someone acting in good faith. Describe what you saw instead, and give us
+          the display name, the chat, and roughly when it happened. That is enough for us to find
+          it.</p>
+      </div>
+
+      <h2 id="response">6 · What happens after a report</h2>
+      <p>Reports flagged as involving a minor are the highest priority we have, and are reviewed
+        ahead of everything else. We aim to act within 24 hours of receiving one.</p>
+      <p>Where a report is substantiated:</p>
+      <ul>
+        <li>The content is removed from the service.</li>
+        <li>The account is terminated permanently, along with any other account we can attribute to
+          the same person.</li>
+        <li>The relevant records — messages, timestamps, coordinates, and account details — are
+          preserved for law enforcement rather than deleted, even where our normal
+          <a class="link" href="privacy.html#retention">retention periods</a> would have removed
+          them.</li>
+        <li>The matter is escalated as described in the next section.</li>
+      </ul>
+      <p>We do not disclose the identity of the person who reported to the person reported.</p>
+
+      <h2 id="authorities">7 · Working with authorities</h2>
+      <p>Credible reports of CSAE are escalated to the <strong>Malta Police Force Cyber Crime
+        Unit</strong>, and, where the material or the people involved fall within its scope, to the
+        <strong>National Center for Missing &amp; Exploited Children</strong> through its
+        CyberTipline.</p>
+      <p>We cooperate with lawful requests from law enforcement and from child protection agencies,
+        and we will preserve data on request while a matter is being investigated.</p>
+
+      <h2 id="contact">8 · Point of contact</h2>
+      <p>The point of contact for child safety — for users, for Google, and for law enforcement —
+        is <a class="link" href="mailto:safety@percep2.com">safety@percep2.com</a>. It is monitored
+        directly by the developer.</p>
+      <p>For anything that is not a child safety matter:
+        <a class="link" href="mailto:support@percep2.com">support@percep2.com</a> for general
+        support, and <a class="link" href="mailto:privacy@percep2.com">privacy@percep2.com</a> for
+        data protection and privacy rights.</p>
 
     </div>
   </div>
