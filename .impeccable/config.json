@@ -1,0 +1,74 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "createdAt": "2026-10-29T19:48:57.179Z",
+        "reason": "agent: existing Percep2 brandbook display face, moved unchanged from inline styles during i18n refactor"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-29T19:48:57.258Z",
+        "reason": "agent: existing Percep2 brandbook text face, moved unchanged from inline styles during i18n refactor"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "assets/doc.css"
+        ],
+        "createdAt": "2026-10-29T19:48:57.351Z",
+        "reason": "agent: pre-existing .note callout on legal pages, moved unchanged from inline styles"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-29T21:13:03.080Z",
+        "reason": "agent: pre-existing proof ticker from the live site, untouched apart from example text"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-29T21:13:03.183Z",
+        "reason": "agent: pre-existing brandbook type scale, moved unchanged during i18n refactor"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "pt-br/index.html"
+        ],
+        "createdAt": "2026-10-29T21:13:03.308Z",
+        "reason": "agent: pre-existing proof ticker from the live site, untouched apart from example text"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "pt-br/index.html"
+        ],
+        "createdAt": "2026-10-29T21:13:03.398Z",
+        "reason": "agent: pre-existing brandbook type scale, moved unchanged during i18n refactor"
+      },
+      {
+        "rule": "aphoristic-cadence",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-29T21:13:03.503Z",
+        "reason": "agent: existing marketing copy written by the site owner; only factual wording was edited"
+      }
+    ]
+  }
+}

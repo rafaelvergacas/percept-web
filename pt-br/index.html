@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Percep2 — Converse com quem está por perto. Sem adicionar ninguém.</title>
+<meta name="description" content="O Percep2 coloca você no chat do lugar onde você está — o do seu bairro e o da sua região. Sem match, sem seguir ninguém, sem trocar número.">
+<link rel="preload" href="../fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="canonical" href="https://percep2.com/pt-br/">
+<link rel="alternate" hreflang="en" href="https://percep2.com/">
+<link rel="alternate" hreflang="pt-BR" href="https://percep2.com/pt-br/">
+<link rel="alternate" hreflang="x-default" href="https://percep2.com/">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+h1{font-size:var(--fs-display);letter-spacing:-.03em}
+h2{font-size:var(--fs-h1);letter-spacing:-.02em;margin-bottom:1rem}
+
+/* ---- hero ---- */
+.hero{padding-block:clamp(3.5rem,8vw,6.5rem) var(--sec);position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);
+  align-items:center}
+.hero h1{margin-bottom:1.4rem}
+.hero .sub{font-size:var(--fs-lg);line-height:1.6;color:var(--mist);opacity:.86;margin-bottom:2.2rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.micro{font-size:var(--fs-s);color:var(--slate);margin-top:1.1rem}
+.trust{display:inline-flex;align-items:center;gap:.55rem;margin-top:.9rem;
+  font-size:var(--fs-s);color:var(--blue-l)}
+.trust svg{flex:none}
+
+/* mark stage */
+.stage{position:relative;display:grid;place-items:center;
+  min-height:clamp(320px,42vw,460px)}
+.stage canvas.mark{width:min(300px,60vw);height:min(300px,60vw);display:block;
+  position:relative;z-index:2}
+.rings{position:absolute;inset:0;display:grid;place-items:center;z-index:1}
+.rings i{position:absolute;border:1px solid var(--blue);border-radius:50%;
+  width:90px;height:90px;opacity:0;
+  animation:ping 6s cubic-bezier(.22,.61,.36,1) infinite}
+.rings i:nth-child(2){animation-delay:2s}
+.rings i:nth-child(3){animation-delay:4s}
+@keyframes ping{0%{width:90px;height:90px;opacity:0}
+  10%{opacity:.42}100%{width:min(520px,92vw);height:min(520px,92vw);opacity:0}}
+
+/* ---- proof ticker ---- */
+.proof{border-block:1px solid var(--line);background:var(--ink);
+  padding-block:1.05rem;overflow:hidden}
+.track{display:flex;gap:3.5rem;width:max-content;
+  animation:slide 46s linear infinite}
+.proof:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.msg{font-size:var(--fs-s);color:var(--slate);white-space:nowrap;
+  display:flex;align-items:center;gap:.6rem}
+.msg b{color:var(--blue-l);font-weight:600}
+.proof-note{font-size:var(--fs-xs);color:#4B5160;text-align:center;
+  margin-top:.7rem;letter-spacing:.04em}
+
+/* ---- sections ---- */
+section{padding-block:var(--sec)}
+.lede{font-size:var(--fs-lg);color:var(--mist);opacity:.9}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:24px;transition:border-color .16s var(--ease)}
+.step:hover{border-color:#2F3543}
+.step .n{font-family:var(--disp);font-size:var(--fs-s);font-weight:700;
+  color:var(--blue);letter-spacing:.1em;display:block;margin-bottom:.9rem}
+.step h3{font-size:1.15rem;margin-bottom:.55rem}
+.step p{font-size:var(--fs-s);color:var(--slate);line-height:1.6}
+
+.bens{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.ben{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:24px}
+.ben h3{font-size:1.1rem;margin-bottom:.6rem}
+.ben p{font-size:var(--fs-s);color:var(--slate);line-height:1.62}
+.ben:nth-child(4),.ben:nth-child(5){grid-column:span 1}
+
+/* light break */
+.break{background:var(--paper);color:var(--ink)}
+.break h2,.break h3{color:var(--ink)}
+.break p{color:#454B58}
+.break .eyebrow{color:#8A909C}
+.break .step,.break .ben{background:#fff;border-color:#E4E6EB}
+.break .step p,.break .ben p{color:#5F6675}
+
+/* ---- faq ---- */
+.faq{margin-top:2.6rem;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:1.25rem 2.5rem 1.25rem 0;
+  font-family:var(--disp);font-weight:600;font-size:1.05rem;color:var(--paper);
+  position:relative;transition:color .14s var(--ease)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--blue-l)}
+.faq summary:focus-visible{outline:2px solid var(--blue-l);outline-offset:4px}
+.faq summary::after{content:"";position:absolute;right:.35rem;top:1.55rem;
+  width:11px;height:11px;border-right:1.5px solid var(--slate);
+  border-bottom:1.5px solid var(--slate);transform:rotate(45deg);
+  transition:transform .2s var(--ease)}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq details .a{padding:0 0 1.4rem;font-size:var(--fs-s);color:var(--slate);
+  line-height:1.7;max-width:66ch}
+.faq details .a strong{color:var(--mist);font-weight:600}
+.faq-note{font-size:var(--fs-s);color:var(--slate);margin-top:1.6rem}
+
+/* ---- final ---- */
+.final{background:var(--blue);color:#fff;text-align:center}
+.final h2{color:#fff;font-size:var(--fs-display)}
+.final p{color:rgba(255,255,255,.86);margin:1rem auto 2.2rem}
+.final .btn{background:#fff;color:var(--blue-d)}
+.final .btn:hover{background:var(--paper)}
+.final .micro{color:rgba(255,255,255,.72)}
+.stores{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+.final .stores .btn{min-width:190px;gap:.6rem}
+@media(max-width:640px){.final .stores .btn{width:100%;max-width:320px}}
+
+/* ---- scroll reveal ---- */
+.rv{opacity:0;transform:translateY(12px);
+  transition:opacity .24s ease-out,transform .24s ease-out}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .rings i,.track{animation:none}
+  html{scroll-behavior:auto}
+}
+
+@media(max-width:900px){
+  .hero-grid,.two{grid-template-columns:1fr}
+  .steps,.bens{grid-template-columns:1fr}
+  .stage{order:-1;min-height:300px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <div class="lock"><canvas id="navmark" width="56" height="56"></canvas><span>percep2</span></div>
+    <div class="nav-end">
+      <details class="lang">
+        <summary aria-label="Idioma: português"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>PT</summary>
+        <ul>
+          <li><a href="../index.html" hreflang="en" lang="en" data-lang="en">English</a></li>
+          <li><a href="index.html" hreflang="pt-BR" lang="pt-BR" data-lang="pt-br" aria-current="true">Português (Brasil)</a></li>
+        </ul>
+      </details>
+      <a class="btn btn-p" href="#get">Baixe o Percep2</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 1 · HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="rv">Converse com quem está por perto.<br>Sem adicionar ninguém.</h1>
+      <p class="sub rv">O Percep2 coloca você no chat do lugar onde você está — um para o seu
+        bairro, outro para a região ao redor. Sem match. Sem seguir ninguém. Sem trocar número.
+        Você chega e já está na conversa.</p>
+      <div class="cta-row rv">
+        <a class="btn btn-p" href="#get">Baixe o Percep2</a>
+        <a class="btn btn-s" href="#how">Veja como funciona</a>
+      </div>
+      <p class="micro rv">Grátis. Grátis de verdade. Você entra no chat da sua área assim que abre o app.</p>
+      <p class="trust rv">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Ninguém vê onde você está. Só que você está por perto.
+      </p>
+    </div>
+    <div class="stage rv">
+      <div class="rings"><i></i><i></i><i></i></div>
+      <canvas class="mark" id="heromark" width="640" height="640"></canvas>
+    </div>
+  </div>
+</header>
+
+<!-- 2 · PROOF -->
+<div class="proof">
+  <div class="track" id="track"></div>
+</div>
+
+<!-- 3 · CONFLICT -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">O problema</span>
+    <h2 class="rv">Antes de falar com alguém,<br>você precisa virar alguém.</h2>
+    <div class="two" style="margin-top:2rem">
+      <div>
+        <p class="lede rv">Um amigo. Um seguidor. Um match. Um contato salvo.</p>
+        <p class="rv dim" style="margin-top:1.1rem">Os apps que você já usa foram feitos para
+          montar uma lista de conexões — e só depois, talvez, deixar você conversar. A conversa
+          virou o prêmio no fim de um processo.</p>
+      </div>
+      <div>
+        <p class="rv dim">Então acontece isto. Você está num lugar cheio de gente com quem teria
+          algo a dizer, e não tem como dizer. O restaurante que acabou de abrir. O show que está
+          rolando agora. O acidente uma rua acima. Todo mundo sabendo a mesma coisa, e ninguém
+          falando nada com ninguém.</p>
+        <p class="rv" style="margin-top:1.1rem;color:var(--mist)">Não falta gente por perto.
+          Só ficou mais difícil falar com elas do que com alguém do outro lado do planeta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · HOW IT WORKS (light break) -->
+<section class="break" id="how">
+  <div class="wrap">
+    <span class="eyebrow rv">Como funciona</span>
+    <h2 class="rv">Abra o app. A conversa já está lá.</h2>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span>
+        <h3>Você já está em duas salas</h3>
+        <p>Uma para o seu bairro, com cerca de um quilômetro de extensão, e outra, maior,
+          para a sua região. As duas levam o nome do lugar que cobrem. Sem lista de amigos, sem pedido
+          para entrar — abriu o app, está dentro.</p></div>
+      <div class="step rv"><span class="n">02</span>
+        <h3>O Descobrir mostra o que mais está rolando</h3>
+        <p>Chats que as pessoas criaram sobre algo específico — um jogo, uma fila, uma falta de
+          luz. Mande uma mensagem e ele vai para a sua lista. Ignore e ele não atrapalha.
+          A maioria some depois de duas horas: feitos para o agora.</p></div>
+      <div class="step rv"><span class="n">03</span>
+        <h3>Se valeu a pena, a conversa continua</h3>
+        <p>Quem criou o chat pode transformá-lo em um Chat Fechado, e todo mundo que já estava
+          conversando vai junto. Depois disso, novas pessoas entram por link de convite.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · BENEFITS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">O que muda</span>
+    <h2 class="rv">Cinco coisas que funcionam diferente aqui.</h2>
+    <div class="bens">
+      <div class="ben rv"><h3>Converse primeiro, conecte depois</h3>
+        <p>Você não deveria ter que decidir se alguém é interessante por uma foto antes de
+          descobrir se é mesmo. Aqui a conversa vem primeiro — que era a ordem em que as pessoas
+          se conheciam antes de a internet inverter tudo.</p></div>
+      <div class="ben rv"><h3>Todo mundo tem vez</h3>
+        <p>Nenhum algoritmo escolhendo quem aparece. Se você está por perto, está no chat. Mande
+          uma mensagem e ela chega — não depende de ter o perfil mais atraente, nem para as
+          pessoas nem para um feed.</p></div>
+      <div class="ben rv"><h3>O que está acontecendo, enquanto acontece</h3>
+        <p>Restaurante novo. Show. Festa. Acidente na avenida. Praia fechada por causa do tempo.
+          "Alguém sabe onde fica a livraria?" Informação do bairro em tempo real, de quem está
+          lá de verdade.</p></div>
+      <div class="ben rv"><h3>Você decide quanto contato quer</h3>
+        <p>Desative as mensagens privadas e continue usando os chats normalmente. Bloqueie
+          quem quiser. Contato direto é uma configuração, não uma condição para usar o app.</p></div>
+      <div class="ben rv"><h3>Seu prédio, seu escritório, seu grupo</h3>
+        <p>Fale com o prédio inteiro sem ter o número de ninguém. Fale com todo mundo que
+          trabalha onde você trabalha. O grupo já existe — ele é geográfico.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · OBJECTIONS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">Antes de instalar</span>
+    <h2 class="rv">O que você provavelmente está se perguntando.</h2>
+    <div class="faq">
+      <details open class="rv"><summary>Alguém consegue saber onde eu estou?</summary>
+        <div class="a"><strong>Não.</strong> Ninguém vê a sua localização exata — nem outros
+          usuários, nem as pessoas dos seus chats. O Percep2 só precisa saber em qual área você
+          está — o seu bairro e a sua região. É só isso. Não tem pino no mapa, não tem endereço,
+          não tem &ldquo;a 300 metros de você&rdquo;. Ou você está na área, ou não está.</div></details>
+      <details class="rv"><summary>Sou obrigado a receber mensagens privadas de desconhecidos?</summary>
+        <div class="a">Não. Você pode desativar as mensagens privadas e continuar usando todos
+          os chats normalmente. E pode bloquear qualquer pessoa.</div></details>
+      <details class="rv"><summary>E se alguém for inconveniente?</summary>
+        <div class="a">Você bloqueia na hora, pelo perfil da pessoa, em qualquer chat — não só
+          nas mensagens privadas. O bloqueio esconde as mensagens dela para você em todo lugar e
+          impede que ela mande mensagens para você. Você também pode <strong>denunciar</strong>
+          qualquer mensagem ou perfil, informando o motivo, e as denúncias vão para uma pessoa
+          que lê cada uma. Quando a denúncia procede, o conteúdo sai do ar ou a conta é
+          removida. Se algo for retirado, quem publicou é informado do motivo. E nada fica para
+          sempre: as mensagens se apagam sozinhas depois de 7 dias nos Chats Abertos e de 30 nos
+          Fechados e nos privados.</div></details>
+      <details class="rv"><summary>Preciso mostrar o rosto ou usar meu nome verdadeiro?</summary>
+        <div class="a">Nenhum dos dois. Um <strong>nome de exibição é a única coisa
+          obrigatória</strong>, e ele não precisa ser o seu nome real — escolha como quer ser
+          chamado. Foto, bio e país são opcionais, editáveis depois, e você pode deixá-los em
+          branco ou apagá-los a qualquer momento. Seu e-mail nunca é mostrado a ninguém.</div></details>
+      <details class="rv"><summary>Quanto custa?</summary>
+        <div class="a">Nada. O app é totalmente gratuito — inclusive a conta Plus, que também
+          não custa nada por enquanto.</div></details>
+      <details class="rv"><summary>E o que é a conta Plus?</summary>
+        <div class="a">Um tipo de conta com quatro extras: seus Chats Abertos não expiram depois
+          de duas horas, você pode transformá-los em Chats Fechados, pode abrir um chat que
+          alcança além da sua área imediata e pode iniciar quantas conversas privadas novas
+          quiser. Mudar é grátis, e dá para voltar atrás.</div></details>
+      <details class="rv"><summary>Por que os chats somem depois de duas horas?</summary>
+        <div class="a">Porque eles são para o que está acontecendo agora. Um chat sobre o show
+          acaba quando o show acaba. O que valer a pena manter vira um Chat Fechado; o resto
+          sai do caminho.</div></details>
+      <details class="rv"><summary>É um app de namoro?</summary>
+        <div class="a">Não só. Tem gente procurando um relacionamento, tem gente que quer fazer
+          amizade ou achar companhia para alguma coisa, e tem gente que só quer saber o que está
+          rolando por perto. Os três cabem no mesmo chat, e é justamente isso que faz funcionar.</div></details>
+      <details class="rv"><summary>Funciona onde eu moro?</summary>
+        <div class="a">Não existe lista de países nem lista de espera — abra o app em qualquer
+          lugar e você entra nos chats da sua área na hora. É por isso que são <strong>dois</strong>:
+          o seu bairro tem cerca de um quilômetro de extensão e, no começo, pode estar bem quieto.
+          A sala da região, não. Então uma rua quieta nunca é um beco sem saída — ela está
+          logo abaixo de uma sala com todo mundo dentro. Conforme mais gente perto de você entra,
+          o bairro naturalmente vira a mais movimentada das duas.</div></details>
+    </div>
+    <p class="faq-note rv">Ficou alguma dúvida? Tem gente lendo. Escreva para
+      <a class="link" href="mailto:support@percep2.com">support@percep2.com</a> — respondemos em
+      até 7 dias. Dentro do app, Ajuda e Suporte, no menu, vai direto para quem desenvolve
+      o Percep2.</p>
+  </div>
+</section>
+
+<!-- 9 · FINAL CTA -->
+<section class="final" id="get">
+  <div class="wrap">
+    <h2 class="rv">Olhe ao seu redor.</h2>
+    <p class="rv">Tem uma conversa acontecendo a menos de um quilômetro daqui.
+      Você só precisa abrir.</p>
+    <div class="stores rv">
+      <a class="btn" href="https://apps.apple.com/app/id6810863761"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>App Store</a>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.percep2.app"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>Google Play</a>
+    </div>
+    <p class="micro rv" style="margin-top:1.2rem">Grátis. Sem match, sem seguidores,
+      sem trocar número.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="lock"><canvas id="footmark" width="48" height="48"></canvas>
+      <span style="font-size:1rem">percep2 — olhe ao seu redor</span></div>
+    <div class="flinks">
+      <a href="privacy.html">Privacidade</a><a href="terms.html">Termos</a>
+      <a href="delete-account.html">Excluir conta</a>
+      <a href="child-safety.html">Proteção infantil</a>
+      <a href="mailto:support@percep2.com">Contato</a>
+      <a class="store" href="https://apps.apple.com/app/id6810863761"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>App Store</a>
+      <a class="store" href="https://play.google.com/store/apps/details?id=com.percep2.app"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>Google Play</a>
+    </div>
+  </div>
+  <div class="wrap fcopy">&copy; 2026 Rafael da Silva Vergaças</div>
+</footer>
+
+<script>
+/* ============================================================
+   3 · Proof ticker — duplicado para loop contínuo
+   ============================================================ */
+(function(){
+  const msgs=[
+    ['Vila Madalena','alguém sabe se a padaria da esquina está aberta?'],
+    ['Botafogo','acidente na avenida principal, evitem pela próxima hora'],
+    ['Copacabana','praia fechada hoje, vento demais'],
+    ['Liberdade','abriu um lugar de ramen novo, a fila está curta agora'],
+    ['Escritório','de quem é o carro bloqueando a garagem?'],
+    ['Pinheiros','procurando uma livraria aqui perto, alguma dica?'],
+    ['Ibirapuera','quem mais está no show? que multidão']
+  ];
+  const t=document.getElementById('track');
+  if(!t) return;
+  const html=msgs.map(([p,m])=>`<span class="msg"><b>${p}</b> ${m}</span>`).join('');
+  t.innerHTML=html+html;
+})();
+</script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
