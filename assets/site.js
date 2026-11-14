@@ -121,8 +121,6 @@
 })();
 
 (function(){
-  const ua=navigator.userAgent;
-  const ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
-  const url=/Android/i.test(ua)?'https://play.google.com/store/apps/details?id=com.percep2.app':ios?'https://apps.apple.com/app/id6810863761':null;
+  const url=window.storeUrl&&storeUrl();
   if(url)document.querySelectorAll('a.btn-p[href="#get"]').forEach(a=>{a.href=url;});
 })();
