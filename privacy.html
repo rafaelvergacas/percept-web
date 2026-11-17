@@ -41,7 +41,7 @@
       <p class="lede">Percep2 puts you in a chat with people around you. To do that it has to
         know roughly where you are — and nothing more than that. This page says exactly what
         we collect, why, how long we hold it, and how to make it go away.</p>
-      <p class="updated">Last updated 16 August 2026 · Applies to the Percep2 mobile app and percep2.com</p>
+      <p class="updated">Last updated 17 November 2026 · Applies to the Percep2 mobile app and percep2.com</p>
     </div>
 
     <div class="toc">
@@ -212,7 +212,7 @@
             <tr><td>Messages in Open Chats</td><td>7 days, then deleted automatically</td></tr>
             <tr><td>Messages in Closed Chats</td><td>30 days, then deleted automatically</td></tr>
             <tr><td>Private messages</td><td>30 days, then deleted automatically</td></tr>
-            <tr><td>Open Chats themselves</td><td>They expire two hours after creation unless converted to a Closed Chat</td></tr>
+            <tr><td>Open Chats themselves</td><td>They close when their time runs out (two hours on Basic; on Plus up to three days, or while people keep talking) and are deleted 24 hours later, unless converted to a Closed Chat</td></tr>
             <tr><td>Account data and profile</td><td>Until you delete your account</td></tr>
             <tr><td>Last known coordinates</td><td>Overwritten on each use; deleted with your account</td></tr>
             <tr><td>Push notification token</td><td>Until you sign out, revoke the permission, or delete your account</td></tr>
@@ -228,7 +228,7 @@
       <p>A small number of service providers process data on our behalf, under contract, and only
         to do the job they are there for:</p>
       <ul>
-        <li><strong>Microsoft Azure</strong> — hosting, database and file storage.</li>
+        <li><strong>Microsoft Azure</strong> — hosting, database and file storage, and automated safety checks (Azure AI Content Safety) on messages, names and profile or group photos, to keep out offensive and adult content.</li>
         <li><strong>Resend</strong> — outbound email (verification codes, password resets, and
           notices explaining a moderation decision).</li>
         <li><strong>Google (Firebase Cloud Messaging)</strong> — delivering push notifications to
@@ -237,6 +237,7 @@
         <li><strong>Expo</strong> — the push notification service that routes a notification to
           the right device token.</li>
       </ul>
+      <p>When a message contains a link to a supported site (such as YouTube, Instagram or Google Maps), our servers fetch that page's title, description and image to show a preview. The site sees a request from our servers, not from you or the people reading the chat. Other links are not fetched.</p>
       <p>Other people using Percep2 see what you choose to show them: your display name, your
         profile picture and bio if you set them, and the messages you send in a chat. Anything you
         write in an area chat or an Open Chat is visible to everyone in that area — which, for
